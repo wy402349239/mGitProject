@@ -22,6 +22,7 @@ public class BitmapListAdapter extends RecyclerView.Adapter<BitmapListAdapter.Bi
 
     private Context mCtx;
     private List<FileStruct> mFils;
+    private BitmapClickInterface mInter = null;
 
     class BitmapHolder extends RecyclerView.ViewHolder {
 
@@ -33,6 +34,10 @@ public class BitmapListAdapter extends RecyclerView.Adapter<BitmapListAdapter.Bi
             nImg = itemView.findViewById(R.id.bitmap_list_item_img);
             nTv = itemView.findViewById(R.id.bitmap_list_item_tv);
         }
+    }
+
+    public void setInterface(BitmapClickInterface nInterface) {
+        this.mInter = nInterface;
     }
 
     public BitmapListAdapter(Context mCtx, List<FileStruct> fils) {
@@ -51,13 +56,27 @@ public class BitmapListAdapter extends RecyclerView.Adapter<BitmapListAdapter.Bi
     }
 
     @Override
-    public void onBindViewHolder(BitmapHolder holder, int position) {
+    public void onBindViewHolder(BitmapHolder holder, final int position) {
         if (mFils.get(position).isDec()) {
             holder.nImg.setBackgroundColor(Color.RED);
         } else {
             holder.nImg.setBackgroundColor(Color.GRAY);
         }
         holder.nTv.setText(mFils.get(position).getName());
+        holder.nTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mInter != null){
+                    mInter.click(mFils.get(position).getPath());
+                }
+            }
+        });
+    }
+
+    public void resetData(List<BitmapListAdapter.FileStruct> files){
+        this.mFils.clear();
+        this.mFils.addAll(files);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -68,6 +87,7 @@ public class BitmapListAdapter extends RecyclerView.Adapter<BitmapListAdapter.Bi
     static class FileStruct {
         boolean isDec;//是否文件夹
         String name;//名称
+        String path;//路劲
 
         public boolean isDec() {
             return isDec;
@@ -83,6 +103,14 @@ public class BitmapListAdapter extends RecyclerView.Adapter<BitmapListAdapter.Bi
 
         public void setName(String name) {
             this.name = name;
+        }
+
+        public String getPath() {
+            return path;
+        }
+
+        public void setPath(String path) {
+            this.path = path;
         }
     }
 }
