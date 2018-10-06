@@ -4,8 +4,8 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.project.git.com.gitproject"
-        minSdkVersion 21
-        targetSdkVersion 26
+        minSdkVersion 14
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -19,6 +19,7 @@ android {
 }
 
 dependencies {
+    compile 'com.github.crossoverone:StatusBarUtil:1.3.3'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.0.2'

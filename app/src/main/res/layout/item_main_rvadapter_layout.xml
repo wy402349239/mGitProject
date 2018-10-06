@@ -10,6 +10,7 @@
         android:background="@drawable/activity_main_item_bg"
         android:padding="5dp"
         android:textColor="@android:color/black"
+        android:textAllCaps="false"
         android:text="item"
         android:textSize="15dp" />
 

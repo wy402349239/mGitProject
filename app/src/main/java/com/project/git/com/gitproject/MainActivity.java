@@ -1,5 +1,7 @@
 package com.project.git.com.gitproject;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,10 +15,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.project.git.com.gitproject.bitmap.BitmapActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+import crossoverone.statuslib.StatusUtil;
+
+public class MainActivity extends BaseActivity {
 
     RecyclerView mRv;
     private List<String> mItems = new ArrayList<>();
@@ -27,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setCj();
         mRv = findViewById(R.id.demo_main_recycler);
         mRv.addItemDecoration(new MainItemDecoration());
         mAdapter = new MainRvAdapter();
@@ -50,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addItems() {
-        mItems.add("test1");
+        mItems.add("bitmap");
         mItems.add("test2");
         mItems.add("test3");
         mItems.add("test4");
@@ -96,9 +103,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             final int positon = Integer.parseInt(view.getTag().toString());
-            Toast.makeText(MainActivity.this, "click " + positon, Toast.LENGTH_SHORT).show();
             switch (positon) {
                 case 0:
+                    startActivity(new Intent(MainActivity.this, BitmapActivity.class));
                     break;
             }
         }
