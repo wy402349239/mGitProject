@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.project.git.com.gitproject.bitmap.BitmapActivity;
+import com.project.git.com.gitproject.rxjava.RxJavaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,11 +59,7 @@ public class MainActivity extends BaseActivity {
 
     private void addItems() {
         mItems.add("bitmap");
-        mItems.add("test2");
-        mItems.add("test3");
-        mItems.add("test4");
-        mItems.add("test5");
-        mItems.add("test6");
+        mItems.add("RxJava");
         mAdapter.notifyDataSetChanged();
     }
 
@@ -106,6 +103,9 @@ public class MainActivity extends BaseActivity {
             switch (positon) {
                 case 0:
                     startActivity(new Intent(MainActivity.this, BitmapActivity.class));
+                    break;
+                case 1:
+                    startActivity(new Intent(MainActivity.this, RxJavaActivity.class));
                     break;
             }
         }

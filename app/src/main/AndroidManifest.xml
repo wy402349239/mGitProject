@@ -26,6 +26,9 @@
         <activity
             android:name=".bitmap.BitmapListActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".rxjava.RxJavaActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
