@@ -36,7 +36,7 @@ public class RxJavaActivity extends BaseActivity {
         setContentView(R.layout.activity_null_layout);
         setCj();
         mRootView = findViewById(R.id.activity_root_linear);
-        texts = new String[]{"default"};
+        texts = new String[]{"default", "thread"};
         for (int i = 0; i < texts.length; i++) {
             addBtns(texts[i]);
         }
@@ -73,6 +73,8 @@ public class RxJavaActivity extends BaseActivity {
                 if (tag != null && !TextUtils.isEmpty(tag)) {
                     if (tag.equals(texts[0])){
                         defaultRx();
+                    }else if (tag.equals(texts[1])){
+                        threadUse();
                     }
                 }
             } catch (Exception e) {
@@ -80,6 +82,21 @@ public class RxJavaActivity extends BaseActivity {
             }
         }
     };
+
+    /**
+     * 线程调用
+     */
+    private void threadUse(){
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
+                Log.e("subscribe", "subscribe");
+                e.onNext("x");
+                e.onComplete();
+            }
+        })
+        .subscribeOn();
+    }
 
     /**
      * 默认的写法
@@ -96,14 +113,24 @@ public class RxJavaActivity extends BaseActivity {
                 }
             }
         }).subscribe(new Observer<String>() {
+
+            Disposable nDisp = null;
+
             @Override
             public void onSubscribe(Disposable d) {
                 Log.e("Observer", "onSubscribe");
+                if (nDisp == null){
+                    nDisp = d;
+                }
             }
 
             @Override
             public void onNext(String s) {
                 Log.e("onNext", s);
+                int count = Integer.parseInt(s);
+                if (count >= 4 && nDisp != null){
+                    nDisp.dispose();
+                }
             }
 
             @Override
