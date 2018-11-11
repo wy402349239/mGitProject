@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     defaultConfig {
         applicationId "com.project.git.com.gitproject"
-        minSdkVersion 14
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -20,6 +20,17 @@ android {
         flatDir {
             dirs 'libs'
         }
+    }
+    sourceSets.main {
+        jniLibs.srcDirs = ['libs']
+    }
+}
+
+// required
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'http://jitpack.io' }
     }
 }
 
@@ -39,4 +50,19 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //IJK
+    // required, enough for most devices.
+    compile 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
+    compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'
+
+    // Other ABIs: optional
+    compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.8.8'
+    compile 'tv.danmaku.ijk.media:ijkplayer-arm64:0.8.8'
+    compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.8.8'
+    compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8'
+
+    // ExoPlayer as IMediaPlayer: optional, experimental
+    compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.8'
+
 }

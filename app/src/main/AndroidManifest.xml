@@ -31,6 +31,9 @@
         <activity
             android:name=".rxjava.RxJavaActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".ijk.ActivityIjk"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

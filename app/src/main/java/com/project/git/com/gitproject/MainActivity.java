@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.project.git.com.gitproject.bitmap.BitmapActivity;
+import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
 
 import java.util.ArrayList;
@@ -60,6 +61,7 @@ public class MainActivity extends BaseActivity {
     private void addItems() {
         mItems.add("bitmap");
         mItems.add("RxJava");
+        mItems.add("IjkPlayer");
         mAdapter.notifyDataSetChanged();
     }
 
@@ -106,6 +108,9 @@ public class MainActivity extends BaseActivity {
                     break;
                 case 1:
                     startActivity(new Intent(MainActivity.this, RxJavaActivity.class));
+                    break;
+                case 2:
+                    startActivity(new Intent(MainActivity.this, ActivityIjk.class));
                     break;
             }
         }
