@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.project.git.com.gitproject.Sqlite.SqliteActivity;
 import com.project.git.com.gitproject.bitmap.BitmapActivity;
 import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
@@ -62,6 +63,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("bitmap");
         mItems.add("RxJava");
         mItems.add("IjkPlayer");
+        mItems.add("Sqlite");
         mAdapter.notifyDataSetChanged();
     }
 
@@ -111,6 +113,9 @@ public class MainActivity extends BaseActivity {
                     break;
                 case 2:
                     startActivity(new Intent(MainActivity.this, ActivityIjk.class));
+                    break;
+                case 3:
+                    startActivity(new Intent(MainActivity.this, SqliteActivity.class));
                     break;
             }
         }
