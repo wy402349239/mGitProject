@@ -1,29 +1,24 @@
 package com.project.git.com.gitproject;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Rect;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.project.git.com.gitproject.Sqlite.SqliteActivity;
 import com.project.git.com.gitproject.bitmap.BitmapActivity;
 import com.project.git.com.gitproject.ijk.ActivityIjk;
+import com.project.git.com.gitproject.levitate.FloatActivity;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import crossoverone.statuslib.StatusUtil;
 
 public class MainActivity extends BaseActivity {
 
@@ -35,8 +30,10 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-        setCj();
+//        setCj();
         mRv = findViewById(R.id.demo_main_recycler);
         mRv.addItemDecoration(new MainItemDecoration());
         mAdapter = new MainRvAdapter();
@@ -64,6 +61,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("RxJava");
         mItems.add("IjkPlayer");
         mItems.add("Sqlite");
+        mItems.add("悬浮窗");
         mAdapter.notifyDataSetChanged();
     }
 
@@ -116,6 +114,9 @@ public class MainActivity extends BaseActivity {
                     break;
                 case 3:
                     startActivity(new Intent(MainActivity.this, SqliteActivity.class));
+                    break;
+                case 4:
+                    startActivity(new Intent(MainActivity.this, FloatActivity.class));
                     break;
             }
         }
