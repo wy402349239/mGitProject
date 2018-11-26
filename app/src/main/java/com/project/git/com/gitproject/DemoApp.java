@@ -15,6 +15,7 @@ public class DemoApp extends Application {
 
     Observable mObsb = null;
     private static DemoApp mApp = null;
+    private boolean mShowFloat = false;
 
     @Override
     public void onCreate() {
@@ -46,5 +47,13 @@ public class DemoApp extends Application {
 
     public Observable getObsb() {
         return mObsb;
+    }
+
+    public boolean isShowFloat() {
+        return mShowFloat;
+    }
+
+    public void setShowFloat(boolean showFloat) {
+        mShowFloat = showFloat;
     }
 }

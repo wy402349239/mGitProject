@@ -17,4 +17,6 @@ public class FloatView extends View {
     public FloatView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
+
 }
