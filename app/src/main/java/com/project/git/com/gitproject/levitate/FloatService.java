@@ -25,7 +25,7 @@ public class FloatService extends Service {
     private RelativeLayout mToucherLayout;
     private WindowManager.LayoutParams mParams;
     private WindowManager manager;
-    private ImageView mBtn;
+    private FloatView mBtn;
     private int mStatuHeight = -1;
 
     @Nullable

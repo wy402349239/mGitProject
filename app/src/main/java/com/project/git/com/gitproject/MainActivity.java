@@ -16,6 +16,8 @@ import com.project.git.com.gitproject.bitmap.BitmapActivity;
 import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.levitate.FloatActivity;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
+import com.project.git.com.gitproject.statu.GradintActivity;
+import com.project.git.com.gitproject.statu.TransStatuActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +64,8 @@ public class MainActivity extends BaseActivity {
         mItems.add("IjkPlayer");
         mItems.add("Sqlite");
         mItems.add("悬浮窗");
+        mItems.add("透明状态栏");
+        mItems.add("渐变状态栏");
         mAdapter.notifyDataSetChanged();
     }
 
@@ -117,6 +121,12 @@ public class MainActivity extends BaseActivity {
                     break;
                 case 4:
                     startActivity(new Intent(MainActivity.this, FloatActivity.class));
+                    break;
+                case 5:
+                    startActivity(new Intent(MainActivity.this, TransStatuActivity.class));
+                    break;
+                case 6:
+                    startActivity(new Intent(MainActivity.this, GradintActivity.class));
                     break;
             }
         }

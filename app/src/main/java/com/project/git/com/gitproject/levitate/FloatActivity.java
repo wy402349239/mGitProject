@@ -7,9 +7,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -18,7 +20,9 @@ import com.project.git.com.gitproject.BaseActivity;
 import com.project.git.com.gitproject.DemoApp;
 import com.project.git.com.gitproject.R;
 
-public class FloatActivity extends BaseActivity {
+import java.lang.reflect.Field;
+
+public class FloatActivity extends AppCompatActivity {
 
     private LinearLayout mRoot;
     private Button mBtn, mStatu;
@@ -29,7 +33,6 @@ public class FloatActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_null_layout);
-        setCj();
         initViews();
     }
 
@@ -37,7 +40,7 @@ public class FloatActivity extends BaseActivity {
         mRoot = findViewById(R.id.activity_root_linear);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             mHavePermission = Settings.canDrawOverlays(this);
-        }else {
+        } else {
             mHavePermission = true;
         }
         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -62,18 +65,18 @@ public class FloatActivity extends BaseActivity {
             public void onClick(View v) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     mHavePermission = Settings.canDrawOverlays(FloatActivity.this);
-                }else {
+                } else {
                     mHavePermission = true;
                 }
-                if (!DemoApp.getInstance().isShowFloat() && mHavePermission){
+                if (!DemoApp.getInstance().isShowFloat() && mHavePermission) {
                     startService(new Intent(FloatActivity.this, FloatService.class));
-                }else {
+                } else {
                     String nMsg = "";
-                    if (!mHavePermission){
+                    if (!mHavePermission) {
                         nMsg = "未开通悬浮窗权限";
-                    }else if (DemoApp.getInstance().isShowFloat()){
+                    } else if (DemoApp.getInstance().isShowFloat()) {
                         nMsg = "悬浮窗已开启";
-                    }else {
+                    } else {
                         nMsg = "--";
                     }
                     Toast.makeText(FloatActivity.this, nMsg, Toast.LENGTH_LONG).show();
@@ -88,10 +91,10 @@ public class FloatActivity extends BaseActivity {
         mBtn.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && requestCode == PermissionRequestCode){
-                    if (Settings.canDrawOverlays(FloatActivity.this)){
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && requestCode == PermissionRequestCode) {
+                    if (Settings.canDrawOverlays(FloatActivity.this)) {
                         mStatu.setText("已获得权限");
-                    }else {
+                    } else {
                         mStatu.setText("未获得权限");
                     }
                 }

@@ -39,6 +39,11 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".levitate.FloatActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".statu.TransStatuActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".statu.GradintActivity"
+            android:screenOrientation="portrait"/>
         <service android:name=".levitate.FloatService" />
     </application>
 
