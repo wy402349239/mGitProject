@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/null_act_lay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
@@ -8,14 +9,23 @@
         android:id="@+id/activity_root_linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:orientation="vertical">
 
         <com.project.git.com.gitproject.levitate.FloatView
+            android:id="@+id/rx_float"
             android:layout_width="340dp"
             android:layout_height="340dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center_horizontal"
             android:background="#220492fb" />
+
+        <LinearLayout
+            android:id="@+id/horilay"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:orientation="horizontal">
+
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

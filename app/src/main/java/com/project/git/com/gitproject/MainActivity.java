@@ -15,9 +15,13 @@ import com.project.git.com.gitproject.Sqlite.SqliteActivity;
 import com.project.git.com.gitproject.bitmap.BitmapActivity;
 import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.levitate.FloatActivity;
+import com.project.git.com.gitproject.pictureinpicture.PicActivity;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
+import com.project.git.com.gitproject.size.SizeActivity;
+import com.project.git.com.gitproject.size.ViewSizeUtil;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
+import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +39,7 @@ public class MainActivity extends BaseActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        ViewSizeUtil.getInstance(this);
 //        setCj();
         mRv = findViewById(R.id.demo_main_recycler);
         mRv.addItemDecoration(new MainItemDecoration());
@@ -66,6 +71,9 @@ public class MainActivity extends BaseActivity {
         mItems.add("悬浮窗");
         mItems.add("透明状态栏");
         mItems.add("渐变状态栏");
+        mItems.add("SimpleViewpagerFragment");
+        mItems.add("size");
+        mItems.add("画中画");
         mAdapter.notifyDataSetChanged();
     }
 
@@ -127,6 +135,15 @@ public class MainActivity extends BaseActivity {
                     break;
                 case 6:
                     startActivity(new Intent(MainActivity.this, GradintActivity.class));
+                    break;
+                case 7:
+                    startActivity(new Intent(MainActivity.this, PagerActivity.class));
+                    break;
+                case 8:
+                    startActivity(new Intent(MainActivity.this, SizeActivity.class));
+                    break;
+                case 9:
+                    startActivity(new Intent(MainActivity.this, PicActivity.class));
                     break;
             }
         }

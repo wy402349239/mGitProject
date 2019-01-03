@@ -16,6 +16,7 @@ public class DemoApp extends Application {
     Observable mObsb = null;
     private static DemoApp mApp = null;
     private boolean mShowFloat = false;
+    private int mFragmentIndex = 0;
 
     @Override
     public void onCreate() {
@@ -55,5 +56,10 @@ public class DemoApp extends Application {
 
     public void setShowFloat(boolean showFloat) {
         mShowFloat = showFloat;
+    }
+
+    public int getmFragmentIndex() {
+        mFragmentIndex ++;
+        return mFragmentIndex;
     }
 }

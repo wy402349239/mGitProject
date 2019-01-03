@@ -44,6 +44,14 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".statu.GradintActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".viewpagerfragment.PagerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".size.SizeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".pictureinpicture.PicActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:supportsPictureInPicture="true"/>
         <service android:name=".levitate.FloatService" />
     </application>
 

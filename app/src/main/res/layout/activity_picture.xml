@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.project.git.com.gitproject.levitate.FloatView
+        android:id="@+id/float_view"
+        android:layout_width="match_parent"
+        android:layout_height="202.5dp" />
+
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/float_view"
+        android:layout_alignBottom="@+id/float_view"
+        android:gravity="center"
+        android:textColor="#333333"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/picture_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time_tv"
+        android:layout_marginTop="30dp"
+        android:padding="3dp"
+        android:text="PictureInPicture" />
+
+</RelativeLayout>

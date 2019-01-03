@@ -1,11 +1,14 @@
 package com.project.git.com.gitproject.rxjava;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -41,6 +44,8 @@ public class RxJavaActivity extends BaseActivity {
     private LinearLayout mRootView;
     private String[] texts;
     private Disposable mD;
+    private View floatView;
+    private LinearLayout horiLay;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,6 +82,36 @@ public class RxJavaActivity extends BaseActivity {
         for (int i = 0; i < texts.length; i++) {
             addBtns(texts[i]);
         }
+        floatView = findViewById(R.id.rx_float);
+        floatView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DemoPopupWindow popupWindow = new DemoPopupWindow(RxJavaActivity.this);
+                popupWindow.showAtLocation(mRootView, Gravity.CENTER, 0, 0);
+            }
+        });
+        horiLay = findViewById(R.id.horilay);
+        int wh = dip2px(RxJavaActivity.this, 1) * 24;
+        WindowManager wm = (WindowManager) RxJavaActivity.this.getSystemService(Context.WINDOW_SERVICE);
+        int width = wm.getDefaultDisplay().getWidth();
+        Log.e("width = ", width + "/ dp = " + dip2px(RxJavaActivity.this, 1) + "/ wh = " + wh);
+        for (int i = 0; i < 15; i++) {
+            View v = new View(RxJavaActivity.this);
+            if (i % 2 == 0){
+                v.setBackgroundColor(Color.BLACK);
+            }else {
+                v.setBackgroundResource(R.drawable.ic_home_screen);
+            }
+            horiLay.addView(v, new LinearLayout.LayoutParams(wh, wh));
+        }
+    }
+
+    /**
+     * dip转为 px
+     */
+    public int dip2px(Context context, float dipValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dipValue * scale + 0.5f);
     }
 
     /**
