@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.project.git.com.gitproject"
         minSdkVersion 21
         targetSdkVersion 27
