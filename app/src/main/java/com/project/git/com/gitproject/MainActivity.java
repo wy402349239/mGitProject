@@ -22,6 +22,7 @@ import com.project.git.com.gitproject.size.ViewSizeUtil;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
+import com.utilproject.wy.DeviceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +75,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("SimpleViewpagerFragment");
         mItems.add("size");
         mItems.add("画中画");
+        DeviceUtil.getScreenHeight(null);
         mAdapter.notifyDataSetChanged();
     }
 
