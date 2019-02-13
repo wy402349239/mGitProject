@@ -64,23 +64,23 @@ public class MainActivity extends BaseActivity {
         mRv.setLayoutManager(nManager);
         mRv.setAdapter(mAdapter);
         addItems();
-        Toast.makeText(MainActivity.this, "1.0", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this, "热更新初始版本", Toast.LENGTH_LONG).show();
     }
 
     private void addItems() {
-        mItems.add("bitmap");
-        mItems.add("RxJava");
-        mItems.add("IjkPlayer");
-        mItems.add("Sqlite");
-        mItems.add("悬浮窗");
-        mItems.add("透明状态栏");
-        mItems.add("渐变状态栏");
-        mItems.add("SimpleViewpagerFragment");
-        mItems.add("size");
-        mItems.add("画中画");
-        mItems.add("TweenAnimation");
-        mItems.add("PropertyAnimation");
-        mAdapter.notifyDataSetChanged();
+        mItems.add("初始版本");
+//        mItems.add("RxJava");
+//        mItems.add("IjkPlayer");
+//        mItems.add("Sqlite");
+//        mItems.add("悬浮窗");
+//        mItems.add("透明状态栏");
+//        mItems.add("渐变状态栏");
+//        mItems.add("SimpleViewpagerFragment");
+//        mItems.add("size");
+//        mItems.add("画中画");
+//        mItems.add("TweenAnimation");
+//        mItems.add("PropertyAnimation");
+//        mAdapter.notifyDataSetChanged();
     }
 
     class MainRvAdapter extends RecyclerView.Adapter<MainRvAdapter.MainHolder> {
@@ -107,7 +107,7 @@ public class MainActivity extends BaseActivity {
             String s = mItems.get(position);
             holder.nButton.setText(s);
             holder.nButton.setTag(position);
-            holder.nButton.setOnClickListener(mOnItemclick);
+//            holder.nButton.setOnClickListener(mOnItemclick);
         }
 
         @Override

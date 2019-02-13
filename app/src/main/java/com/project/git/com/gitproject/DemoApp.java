@@ -3,6 +3,8 @@ package com.project.git.com.gitproject;
 import android.app.Application;
 
 import com.tencent.bugly.Bugly;
+import com.tencent.tinker.loader.app.TinkerApplication;
+import com.tencent.tinker.loader.shareutil.ShareConstants;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -13,12 +15,17 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Administrator on 2018-10-25.
  */
 
-public class DemoApp extends Application {
+public class DemoApp extends TinkerApplication {
 
     Observable mObsb = null;
     private static DemoApp mApp = null;
     private boolean mShowFloat = false;
     private int mFragmentIndex = 0;
+
+    public DemoApp() {
+        super(ShareConstants.TINKER_ENABLE_ALL, "com.project.git.com.gitproject.TinkerApplicationLike",
+                "com.tencent.tinker.loader.TinkerLoader", false);
+    }
 
     @Override
     public void onCreate() {
