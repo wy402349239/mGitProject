@@ -18,7 +18,9 @@ import android.widget.Toast;
 
 import com.project.git.com.gitproject.BaseActivity;
 import com.project.git.com.gitproject.DemoApp;
+import com.project.git.com.gitproject.MainActivity;
 import com.project.git.com.gitproject.R;
+import com.utilproject.wy.DeviceUtil;
 
 import java.lang.reflect.Field;
 
@@ -33,6 +35,7 @@ public class FloatActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_null_layout);
+        DeviceUtil.setStatuColor(FloatActivity.this, R.drawable.jb_statu);
         initViews();
     }
 
@@ -83,6 +86,23 @@ public class FloatActivity extends AppCompatActivity {
                 }
             }
         });
+        final Button nNavigation = getBtn("show");
+        nNavigation.setTag("shiw");
+        nNavigation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v.getTag() != null && v.getTag().equals("hide")){
+                    DeviceUtil.hideShowNavigationBar(FloatActivity.this, true);
+                    nNavigation.setTag("show");
+                    nNavigation.setText("hide");
+                }else {
+                    DeviceUtil.hideShowNavigationBar(FloatActivity.this, false);
+                    nNavigation.setTag("hide");
+                    nNavigation.setText("show");
+                }
+            }
+        });
+        mRoot.addView(nNavigation, param);
     }
 
     @Override

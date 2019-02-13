@@ -2,6 +2,8 @@ package com.project.git.com.gitproject;
 
 import android.app.Application;
 
+import com.tencent.bugly.Bugly;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -40,6 +42,7 @@ public class DemoApp extends Application {
                 }
             }).subscribeOn(Schedulers.newThread());
         }
+        Bugly.init(DemoApp.this.getApplicationContext(), "578d30338d", true);
     }
 
     public static DemoApp getInstance() {

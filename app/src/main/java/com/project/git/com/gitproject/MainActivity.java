@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.project.git.com.gitproject.Sqlite.SqliteActivity;
+import com.project.git.com.gitproject.animation.AnimationPropertyActivity;
+import com.project.git.com.gitproject.animation.AnimationTweenActivity;
 import com.project.git.com.gitproject.bitmap.BitmapActivity;
 import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.levitate.FloatActivity;
@@ -22,7 +25,6 @@ import com.project.git.com.gitproject.size.ViewSizeUtil;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
-import com.utilproject.wy.DeviceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +64,7 @@ public class MainActivity extends BaseActivity {
         mRv.setLayoutManager(nManager);
         mRv.setAdapter(mAdapter);
         addItems();
+        Toast.makeText(MainActivity.this, "1.0", Toast.LENGTH_LONG).show();
     }
 
     private void addItems() {
@@ -75,7 +78,8 @@ public class MainActivity extends BaseActivity {
         mItems.add("SimpleViewpagerFragment");
         mItems.add("size");
         mItems.add("画中画");
-        DeviceUtil.getScreenHeight(null);
+        mItems.add("TweenAnimation");
+        mItems.add("PropertyAnimation");
         mAdapter.notifyDataSetChanged();
     }
 
@@ -147,6 +151,12 @@ public class MainActivity extends BaseActivity {
                 case 9:
                     startActivity(new Intent(MainActivity.this, PicActivity.class));
                     break;
+                case 10:
+                    startActivity(new Intent(MainActivity.this, AnimationTweenActivity.class));
+                    break;
+                case 11:
+                    startActivity(new Intent(MainActivity.this, AnimationPropertyActivity.class));
+                    break;
             }
         }
     };
@@ -185,9 +195,9 @@ public class MainActivity extends BaseActivity {
             } else {
                 outRect.bottom = 30;
             }
-            if (position == 0){
+            if (position == 0) {
                 outRect.top = 30;
-            }else {
+            } else {
                 outRect.top = 15;
             }
         }
