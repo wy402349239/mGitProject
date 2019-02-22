@@ -8,7 +8,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/demo_main_recycler"
-        android:paddingTop="100dp"
+        android:paddingTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never" />

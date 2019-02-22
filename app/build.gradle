@@ -17,8 +17,8 @@ android {
         applicationId "com.project.git.com.gitproject"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 3
-        versionName "1.2.1"
+        versionCode 10
+        versionName "2.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             //设置支持的SO库架构

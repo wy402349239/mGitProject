@@ -63,6 +63,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".animation.AnimationPropertyActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".canvas.CanvasActivity"
+            android:screenOrientation="portrait"/>
 
 
         <activity

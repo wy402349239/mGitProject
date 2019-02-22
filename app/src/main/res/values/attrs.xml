@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HollowView">
+        <attr name="bgColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="radius" format="dimension" />
+        <attr name="name" format="reference" />
+    </declare-styleable>
+    <item name="tag_first" type="id" />
+    <item name="tag_second" type="id" />
+</resources>

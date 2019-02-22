@@ -16,6 +16,7 @@ import com.project.git.com.gitproject.Sqlite.SqliteActivity;
 import com.project.git.com.gitproject.animation.AnimationPropertyActivity;
 import com.project.git.com.gitproject.animation.AnimationTweenActivity;
 import com.project.git.com.gitproject.bitmap.BitmapActivity;
+import com.project.git.com.gitproject.canvas.CanvasActivity;
 import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.levitate.FloatActivity;
 import com.project.git.com.gitproject.pictureinpicture.PicActivity;
@@ -68,19 +69,20 @@ public class MainActivity extends BaseActivity {
     }
 
     private void addItems() {
-        mItems.add("初始版本");
-//        mItems.add("RxJava");
-//        mItems.add("IjkPlayer");
-//        mItems.add("Sqlite");
-//        mItems.add("悬浮窗");
-//        mItems.add("透明状态栏");
-//        mItems.add("渐变状态栏");
-//        mItems.add("SimpleViewpagerFragment");
-//        mItems.add("size");
-//        mItems.add("画中画");
-//        mItems.add("TweenAnimation");
-//        mItems.add("PropertyAnimation");
-//        mAdapter.notifyDataSetChanged();
+        mItems.add("bitmap");
+        mItems.add("RxJava");
+        mItems.add("IjkPlayer");
+        mItems.add("Sqlite");
+        mItems.add("悬浮窗");
+        mItems.add("透明状态栏");
+        mItems.add("渐变状态栏");
+        mItems.add("SimpleViewpagerFragment");
+        mItems.add("size");
+        mItems.add("画中画");
+        mItems.add("TweenAnimation");
+        mItems.add("PropertyAnimation");
+        mItems.add("CanVas");
+        mAdapter.notifyDataSetChanged();
     }
 
     class MainRvAdapter extends RecyclerView.Adapter<MainRvAdapter.MainHolder> {
@@ -107,7 +109,7 @@ public class MainActivity extends BaseActivity {
             String s = mItems.get(position);
             holder.nButton.setText(s);
             holder.nButton.setTag(position);
-//            holder.nButton.setOnClickListener(mOnItemclick);
+            holder.nButton.setOnClickListener(mOnItemclick);
         }
 
         @Override
@@ -156,6 +158,9 @@ public class MainActivity extends BaseActivity {
                     break;
                 case 11:
                     startActivity(new Intent(MainActivity.this, AnimationPropertyActivity.class));
+                    break;
+                case 12:
+                    startActivity(new Intent(MainActivity.this, CanvasActivity.class));
                     break;
             }
         }

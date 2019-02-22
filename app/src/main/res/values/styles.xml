@@ -11,4 +11,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="NullStyle" >
+        <item name="bgColor">#0492fb</item>
+        <item name="textSize">50sp</item>
+        <item name="radius">15dp</item>
+        <item name="name">@string/null_str</item>
+    </style>
+
 </resources>
