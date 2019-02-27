@@ -19,6 +19,7 @@ import com.project.git.com.gitproject.bitmap.BitmapActivity;
 import com.project.git.com.gitproject.canvas.CanvasActivity;
 import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.levitate.FloatActivity;
+import com.project.git.com.gitproject.pic.PicScrollActivity;
 import com.project.git.com.gitproject.pictureinpicture.PicActivity;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
 import com.project.git.com.gitproject.size.SizeActivity;
@@ -65,7 +66,6 @@ public class MainActivity extends BaseActivity {
         mRv.setLayoutManager(nManager);
         mRv.setAdapter(mAdapter);
         addItems();
-        Toast.makeText(MainActivity.this, "热更新初始版本", Toast.LENGTH_LONG).show();
     }
 
     private void addItems() {
@@ -82,6 +82,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("TweenAnimation");
         mItems.add("PropertyAnimation");
         mItems.add("CanVas");
+        mItems.add("PicScroll");
         mAdapter.notifyDataSetChanged();
     }
 
@@ -162,6 +163,9 @@ public class MainActivity extends BaseActivity {
                 case 12:
                     startActivity(new Intent(MainActivity.this, CanvasActivity.class));
                     break;
+                case 13:
+                    startActivity(new Intent(MainActivity.this, PicScrollActivity.class));
+                    break;
             }
         }
     };
@@ -172,13 +176,13 @@ public class MainActivity extends BaseActivity {
 //            super.getItemOffsets(outRect, view, parent, state);
             int position = parent.getChildAdapterPosition(view);
             if (position % (mItemSpanCount + 1) == 0) {
-                outRect.left = outRect.right = 30;
+                outRect.left = outRect.right = 30;//单行  左右30
             } else {
                 if (position % (mItemSpanCount + 1) == 1) {
                     outRect.left = 30;
-                    outRect.right = 15;
+                    outRect.right = 15;//两个的行   左边的右边距
                 } else {
-                    outRect.left = 15;
+                    outRect.left = 15;//两个的行   右边的左边距
                     outRect.right = 30;
                 }
             }
