@@ -9,6 +9,7 @@
         <item name="android:textAllCaps">false</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:listDivider">@drawable/listdriver</item>
     </style>
 
     <style name="NullStyle" >

@@ -5,6 +5,8 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,7 @@ import com.project.git.com.gitproject.bitmap.BitmapActivity;
 import com.project.git.com.gitproject.canvas.CanvasActivity;
 import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.levitate.FloatActivity;
+import com.project.git.com.gitproject.listener.ItemEvent;
 import com.project.git.com.gitproject.pic.PicScrollActivity;
 import com.project.git.com.gitproject.pictureinpicture.PicActivity;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
@@ -26,7 +29,9 @@ import com.project.git.com.gitproject.size.SizeActivity;
 import com.project.git.com.gitproject.size.ViewSizeUtil;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
+import com.project.git.com.gitproject.util.PopuUtil;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
+import com.utilproject.wy.DeviceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,31 +46,40 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-        ViewSizeUtil.getInstance(this);
+        DeviceUtil.setStatuResouce(this, R.drawable.jb_statu);
 //        setCj();
-        mRv = findViewById(R.id.demo_main_recycler);
-        mRv.addItemDecoration(new MainItemDecoration());
-        mAdapter = new MainRvAdapter();
-//        LinearLayoutManager nManagener = new LinearLayoutManager(MainActivity.this);
-//        nManagener.setOrientation(LinearLayout.VERTICAL);
-//        mRv.setLayoutManager(nManagener);
-        GridLayoutManager nManager = new GridLayoutManager(MainActivity.this, mItemSpanCount);
-        nManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+//        mRv = findViewById(R.id.demo_main_recycler);
+//        mRv.addItemDecoration(new MainItemDecoration());
+//        mAdapter = new MainRvAdapter();
+////        LinearLayoutManager nManagener = new LinearLayoutManager(MainActivity.this);
+////        nManagener.setOrientation(LinearLayout.VERTICAL);
+////        mRv.setLayoutManager(nManagener);
+//        GridLayoutManager nManager = new GridLayoutManager(MainActivity.this, mItemSpanCount);
+//        nManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+//            @Override
+//            public int getSpanSize(int position) {
+//                if (position % (mItemSpanCount + 1) == 0) {
+//                    return mItemSpanCount;
+//                } else {
+//                    return 1;
+//                }
+//            }
+//        });
+//        mRv.setLayoutManager(nManager);
+//        mRv.setAdapter(mAdapter);
+        addItems();
+        findViewById(R.id.popu_btn).setOnClickListener(new View.OnClickListener() {
             @Override
-            public int getSpanSize(int position) {
-                if (position % (mItemSpanCount + 1) == 0) {
-                    return mItemSpanCount;
-                } else {
-                    return 1;
-                }
+            public void onClick(View v) {
+                PopuUtil.showPopuBelowView(v, mItems, new ItemEvent() {
+                    @Override
+                    public void click(int position) {
+                        jumpClick(position);
+                    }
+                });
             }
         });
-        mRv.setLayoutManager(nManager);
-        mRv.setAdapter(mAdapter);
-        addItems();
     }
 
     private void addItems() {
@@ -83,7 +97,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("PropertyAnimation");
         mItems.add("CanVas");
         mItems.add("PicScroll");
-        mAdapter.notifyDataSetChanged();
+//        mAdapter.notifyDataSetChanged();
     }
 
     class MainRvAdapter extends RecyclerView.Adapter<MainRvAdapter.MainHolder> {
@@ -116,6 +130,53 @@ public class MainActivity extends BaseActivity {
         @Override
         public int getItemCount() {
             return mItems.size();
+        }
+    }
+
+    private void jumpClick(int positon){
+        switch (positon) {
+            case 0:
+                startActivity(new Intent(MainActivity.this, BitmapActivity.class));
+                break;
+            case 1:
+                startActivity(new Intent(MainActivity.this, RxJavaActivity.class));
+                break;
+            case 2:
+                startActivity(new Intent(MainActivity.this, ActivityIjk.class));
+                break;
+            case 3:
+                startActivity(new Intent(MainActivity.this, SqliteActivity.class));
+                break;
+            case 4:
+                startActivity(new Intent(MainActivity.this, FloatActivity.class));
+                break;
+            case 5:
+                startActivity(new Intent(MainActivity.this, TransStatuActivity.class));
+                break;
+            case 6:
+                startActivity(new Intent(MainActivity.this, GradintActivity.class));
+                break;
+            case 7:
+                startActivity(new Intent(MainActivity.this, PagerActivity.class));
+                break;
+            case 8:
+                startActivity(new Intent(MainActivity.this, SizeActivity.class));
+                break;
+            case 9:
+                startActivity(new Intent(MainActivity.this, PicActivity.class));
+                break;
+            case 10:
+                startActivity(new Intent(MainActivity.this, AnimationTweenActivity.class));
+                break;
+            case 11:
+                startActivity(new Intent(MainActivity.this, AnimationPropertyActivity.class));
+                break;
+            case 12:
+                startActivity(new Intent(MainActivity.this, CanvasActivity.class));
+                break;
+            case 13:
+                startActivity(new Intent(MainActivity.this, PicScrollActivity.class));
+                break;
         }
     }
 
