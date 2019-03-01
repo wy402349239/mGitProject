@@ -33,6 +33,7 @@ import com.project.git.com.gitproject.statu.TransStatuActivity;
 import com.project.git.com.gitproject.util.PopuUtil;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
 import com.project.git.com.gitproject.wave.WaveActivity;
+import com.project.git.com.gitproject.web.WebActivity;
 import com.utilproject.wy.DeviceUtil;
 import com.utilproject.wy.ListUtil;
 
@@ -103,6 +104,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("CanVas");
         mItems.add("PicScroll");
         mItems.add("wave(水波纹)");
+        mItems.add("web(简道云)");
 //        mAdapter.notifyDataSetChanged();
     }
 
@@ -185,6 +187,11 @@ public class MainActivity extends BaseActivity {
                 break;
             case 14:
                 startActivity(new Intent(MainActivity.this, WaveActivity.class));
+                break;
+            case 15:
+                Intent intentJdy = new Intent(MainActivity.this, WebActivity.class);
+                intentJdy.putExtra("url", "https://link.jiandaoyun.com/f/5c777f6c46fd3c26447509c6");
+                startActivity(intentJdy);
                 break;
         }
         if (mPopu != null) {
