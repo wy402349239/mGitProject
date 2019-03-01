@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.project.git.com.gitproject.Sqlite.SqliteActivity;
@@ -31,8 +32,11 @@ import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
 import com.project.git.com.gitproject.util.PopuUtil;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
+import com.project.git.com.gitproject.wave.WaveActivity;
 import com.utilproject.wy.DeviceUtil;
+import com.utilproject.wy.ListUtil;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +46,7 @@ public class MainActivity extends BaseActivity {
     private List<String> mItems = new ArrayList<>();
     MainRvAdapter mAdapter;
     static final int mItemSpanCount = 2;
+    private PopupWindow mPopu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +77,7 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.popu_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopuUtil.showPopuBelowView(v, mItems, new ItemEvent() {
+                mPopu = PopuUtil.showPopuBelowView(v, mItems, new ItemEvent() {
                     @Override
                     public void click(int position) {
                         jumpClick(position);
@@ -97,6 +102,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("PropertyAnimation");
         mItems.add("CanVas");
         mItems.add("PicScroll");
+        mItems.add("wave(水波纹)");
 //        mAdapter.notifyDataSetChanged();
     }
 
@@ -133,7 +139,7 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    private void jumpClick(int positon){
+    private void jumpClick(int positon) {
         switch (positon) {
             case 0:
                 startActivity(new Intent(MainActivity.this, BitmapActivity.class));
@@ -177,6 +183,12 @@ public class MainActivity extends BaseActivity {
             case 13:
                 startActivity(new Intent(MainActivity.this, PicScrollActivity.class));
                 break;
+            case 14:
+                startActivity(new Intent(MainActivity.this, WaveActivity.class));
+                break;
+        }
+        if (mPopu != null) {
+            mPopu.dismiss();
         }
     }
 

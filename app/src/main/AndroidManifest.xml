@@ -82,7 +82,8 @@
         </provider>
         <activity android:name=".pic.PicScrollActivity"
             android:screenOrientation="portrait"/>
-
+        <activity android:name=".wave.WaveActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -27,9 +27,9 @@ import java.util.List;
  */
 public class PopuUtil {
 
-    public static void showPopuBelowView(View baseView, List<String> strs, ItemEvent event){
+    public static PopupWindow showPopuBelowView(View baseView, List<String> strs, ItemEvent event){
         if (baseView == null){
-            return;
+            return null;
         }
         Context context = baseView.getContext();
         if (strs == null || strs.isEmpty()){
@@ -49,6 +49,7 @@ public class PopuUtil {
         popu.setOutsideTouchable(true);
         popu.setBackgroundDrawable(new BitmapDrawable());
         popu.showAsDropDown(baseView, 0, 0);
+        return popu;
     }
 
     private static class TextAdapter extends RecyclerView.Adapter<TextHolder>{
