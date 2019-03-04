@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.project.git.com.gitproject.AutoFitTextView
+    <com.utilproject.wy.AutoFitTextView
         android:id="@+id/item_popu_tv"
         android:singleLine="true"
         android:layout_width="match_parent"

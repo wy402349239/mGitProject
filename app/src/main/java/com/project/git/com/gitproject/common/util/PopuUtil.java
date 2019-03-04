@@ -1,20 +1,20 @@
-package com.project.git.com.gitproject.util;
+package com.project.git.com.gitproject.common.util;
 
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.project.git.com.gitproject.AutoFitTextView;
 import com.project.git.com.gitproject.R;
 import com.project.git.com.gitproject.listener.ItemEvent;
+import com.utilproject.wy.AutoFitTextView;
 import com.utilproject.wy.ListUtil;
+import com.utilproject.wy.RecyclerDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,24 +27,23 @@ import java.util.List;
  */
 public class PopuUtil {
 
-    public static PopupWindow showPopuBelowView(View baseView, List<String> strs, ItemEvent event){
-        if (baseView == null){
+    public static PopupWindow showPopuBelowView(View baseView, List<String> strs, ItemEvent event) {
+        if (baseView == null) {
             return null;
         }
         Context context = baseView.getContext();
-        if (strs == null || strs.isEmpty()){
+        if (strs == null || strs.isEmpty()) {
             Toast.makeText(context, "数据为空", Toast.LENGTH_SHORT).show();
         }
         View popuView = View.inflate(context, R.layout.popu_layout_recycle, null);
         RecyclerView nRv = popuView.findViewById(R.id.popu_recycler);
         GridLayoutManager manager = new GridLayoutManager(context, 2);
         nRv.setLayoutManager(manager);
-        nRv.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL));
-        nRv.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
+        nRv.addItemDecoration(new RecyclerDecoration());
         TextAdapter adapter = new TextAdapter(strs);
         adapter.setEvent(event);
         nRv.setAdapter(adapter);
-        PopupWindow popu = new PopupWindow(popuView, baseView.getWidth(), (int)(context.getResources().getDisplayMetrics().density * 200));
+        PopupWindow popu = new PopupWindow(popuView, baseView.getWidth(), (int) (context.getResources().getDisplayMetrics().density * 200));
         popu.setFocusable(true);
         popu.setOutsideTouchable(true);
         popu.setBackgroundDrawable(new BitmapDrawable());
@@ -52,13 +51,13 @@ public class PopuUtil {
         return popu;
     }
 
-    private static class TextAdapter extends RecyclerView.Adapter<TextHolder>{
+    public static class TextAdapter extends RecyclerView.Adapter<TextHolder> {
 
         private List<String> mStrs;
         private ItemEvent event;
 
         public TextAdapter(List<String> strs) {
-            if (mStrs == null){
+            if (mStrs == null) {
                 mStrs = new ArrayList<>();
             }
             mStrs.addAll(ListUtil.deepCopy(strs));
@@ -70,7 +69,8 @@ public class PopuUtil {
 
         @Override
         public TextHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = View.inflate(parent.getContext(), R.layout.item_popu_text, null);
+//            View v = View.inflate(parent.getContext(), R.layout.item_popu_text, null);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_popu_text, parent, false);
             return new TextHolder(v);
         }
 
@@ -80,7 +80,7 @@ public class PopuUtil {
             holder.mTv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (event != null){
+                    if (event != null) {
                         event.click(position);
                     }
                 }
@@ -93,7 +93,7 @@ public class PopuUtil {
         }
     }
 
-    private static class TextHolder extends RecyclerView.ViewHolder{
+    private static class TextHolder extends RecyclerView.ViewHolder {
 
         AutoFitTextView mTv;
 
