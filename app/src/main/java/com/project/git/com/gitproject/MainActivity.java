@@ -23,6 +23,7 @@ import com.project.git.com.gitproject.pic.PicScrollActivity;
 import com.project.git.com.gitproject.pictureinpicture.PicActivity;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
 import com.project.git.com.gitproject.size.SizeActivity;
+import com.project.git.com.gitproject.staggred.StaggredActivity;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
@@ -97,6 +98,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("PicScroll");
         mItems.add("wave(水波纹)");
         mItems.add("web(简道云)");
+        mItems.add("Staggered(瀑布流)");
 //        mAdapter.notifyDataSetChanged();
     }
 
@@ -184,6 +186,9 @@ public class MainActivity extends BaseActivity {
                 Intent intentJdy = new Intent(MainActivity.this, WebActivity.class);
                 intentJdy.putExtra("url", "https://link.jiandaoyun.com/f/5c777f6c46fd3c26447509c6");
                 startActivity(intentJdy);
+                break;
+            case 16:
+                startActivity(new Intent(MainActivity.this, StaggredActivity.class));
                 break;
         }
         if (mPopu != null) {

@@ -2,17 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.git.com.gitproject">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
         android:name=".DemoApp"
@@ -38,39 +41,53 @@
         <activity
             android:name=".rxjava.RxJavaActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ijk.ActivityIjk"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".Sqlite.SqliteActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".levitate.FloatActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".statu.TransStatuActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".statu.GradintActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".viewpagerfragment.PagerActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".size.SizeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".pictureinpicture.PicActivity"
+        <activity
+            android:name=".ijk.ActivityIjk"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".Sqlite.SqliteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".levitate.FloatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".statu.TransStatuActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".statu.GradintActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".viewpagerfragment.PagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".size.SizeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pictureinpicture.PicActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-            android:supportsPictureInPicture="true"/>
+            android:screenOrientation="portrait"
+            android:supportsPictureInPicture="true" />
+
         <service android:name=".levitate.FloatService" />
-        <activity android:name=".animation.AnimationTweenActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".animation.AnimationPropertyActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".canvas.CanvasActivity"
-            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".animation.AnimationTweenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".animation.AnimationPropertyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".canvas.CanvasActivity"
+            android:screenOrientation="portrait" />
 
 
         <activity
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@android:style/Theme.Translucent" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileProvider"
@@ -78,14 +95,21 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
-        <activity android:name=".pic.PicScrollActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".wave.WaveActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".web.WebActivity"
-            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".pic.PicScrollActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".wave.WaveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".web.WebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".staggred.StaggredActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
