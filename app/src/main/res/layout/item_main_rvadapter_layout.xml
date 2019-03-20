@@ -11,8 +11,8 @@
         android:padding="5dp"
         android:textColor="@android:color/black"
         android:textAllCaps="false"
-        android:text="item"
-        android:textSize="15dp" />
+        android:text="Item"
+        android:textSize="20dp" />
 
 
 </LinearLayout>

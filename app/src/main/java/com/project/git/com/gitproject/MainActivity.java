@@ -3,7 +3,9 @@ package com.project.git.com.gitproject;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,26 +49,15 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DeviceUtil.setStatuResouce(this, R.drawable.jb_statu);
-//        setCj();
-//        mRv = findViewById(R.id.demo_main_recycler);
-//        mRv.addItemDecoration(new MainItemDecoration());
-//        mAdapter = new MainRvAdapter();
-////        LinearLayoutManager nManagener = new LinearLayoutManager(MainActivity.this);
-////        nManagener.setOrientation(LinearLayout.VERTICAL);
-////        mRv.setLayoutManager(nManagener);
-//        GridLayoutManager nManager = new GridLayoutManager(MainActivity.this, mItemSpanCount);
-//        nManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-//            @Override
-//            public int getSpanSize(int position) {
-//                if (position % (mItemSpanCount + 1) == 0) {
-//                    return mItemSpanCount;
-//                } else {
-//                    return 1;
-//                }
-//            }
-//        });
-//        mRv.setLayoutManager(nManager);
-//        mRv.setAdapter(mAdapter);
+        mRv = findViewById(R.id.demo_main_recycler);
+        mRv.addItemDecoration(mStaggredItemDecortation);
+        mAdapter = new MainRvAdapter();
+//        LinearLayoutManager nManagener = new LinearLayoutManager(MainActivity.this);
+//        nManagener.setOrientation(LinearLayout.VERTICAL);
+//        mRv.setLayoutManager(nManagener);
+        StaggeredGridLayoutManager nManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        mRv.setLayoutManager(nManager);
+        mRv.setAdapter(mAdapter);
         addItems();
         findViewById(R.id.popu_btn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +70,24 @@ public class MainActivity extends BaseActivity {
                 });
             }
         });
+        findViewById(R.id.popu_btn).setVisibility(View.GONE);
     }
+
+    RecyclerView.ItemDecoration mStaggredItemDecortation = new RecyclerView.ItemDecoration() {
+        @Override
+        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+            StaggeredGridLayoutManager.LayoutParams param = (StaggeredGridLayoutManager.LayoutParams)view.getLayoutParams();
+            int spanIndex = param.getSpanIndex();
+            outRect.top = 10;
+            if (spanIndex == 0){
+                outRect.left = 20;
+                outRect.right = 10;
+            }else {
+                outRect.left = 10;
+                outRect.right = 20;
+            }
+        }
+    };
 
     private void addItems() {
         mItems.add("bitmap");
