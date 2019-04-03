@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="systemColor">#DDDDDD</color>
+
+    <color name="theme">#FF0492FB</color>
+    <color name="theme_air">#990492FB</color>
 </resources>

@@ -21,6 +21,7 @@ import com.project.git.com.gitproject.common.util.PopuUtil;
 import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.levitate.FloatActivity;
 import com.project.git.com.gitproject.listener.ItemEvent;
+import com.project.git.com.gitproject.magicindicator.MagicActivity;
 import com.project.git.com.gitproject.pic.PicScrollActivity;
 import com.project.git.com.gitproject.pictureinpicture.PicActivity;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
@@ -76,13 +77,13 @@ public class MainActivity extends BaseActivity {
     RecyclerView.ItemDecoration mStaggredItemDecortation = new RecyclerView.ItemDecoration() {
         @Override
         public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-            StaggeredGridLayoutManager.LayoutParams param = (StaggeredGridLayoutManager.LayoutParams)view.getLayoutParams();
+            StaggeredGridLayoutManager.LayoutParams param = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
             int spanIndex = param.getSpanIndex();
             outRect.top = 10;
-            if (spanIndex == 0){
+            if (spanIndex == 0) {
                 outRect.left = 20;
                 outRect.right = 10;
-            }else {
+            } else {
                 outRect.left = 10;
                 outRect.right = 20;
             }
@@ -107,6 +108,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("wave(水波纹)");
         mItems.add("web(简道云)");
         mItems.add("Staggered(瀑布流)");
+        mItems.add("magicIndicator");
 //        mAdapter.notifyDataSetChanged();
     }
 
@@ -198,6 +200,9 @@ public class MainActivity extends BaseActivity {
             case 16:
                 startActivity(new Intent(MainActivity.this, StaggredActivity.class));
                 break;
+            case 17:
+                startActivity(new Intent(MainActivity.this, MagicActivity.class));
+                break;
         }
         if (mPopu != null) {
             mPopu.dismiss();
@@ -250,6 +255,20 @@ public class MainActivity extends BaseActivity {
                     break;
                 case 13:
                     startActivity(new Intent(MainActivity.this, PicScrollActivity.class));
+                    break;
+                case 14:
+                    startActivity(new Intent(MainActivity.this, WaveActivity.class));
+                    break;
+                case 15:
+                    Intent intentJdy = new Intent(MainActivity.this, WebActivity.class);
+                    intentJdy.putExtra("url", "https://link.jiandaoyun.com/f/5c777f6c46fd3c26447509c6");
+                    startActivity(intentJdy);
+                    break;
+                case 16:
+                    startActivity(new Intent(MainActivity.this, StaggredActivity.class));
+                    break;
+                case 17:
+                    startActivity(new Intent(MainActivity.this, MagicActivity.class));
                     break;
             }
         }

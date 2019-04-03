@@ -110,6 +110,9 @@
         <activity
             android:name=".staggred.StaggredActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".magicindicator.MagicActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
