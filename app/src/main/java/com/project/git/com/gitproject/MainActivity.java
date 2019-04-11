@@ -1,5 +1,6 @@
 package com.project.git.com.gitproject;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 
 import com.project.git.com.gitproject.Sqlite.SqliteActivity;
+import com.project.git.com.gitproject.actAnimation.TurnActivity;
 import com.project.git.com.gitproject.animation.AnimationPropertyActivity;
 import com.project.git.com.gitproject.animation.AnimationTweenActivity;
 import com.project.git.com.gitproject.bitmap.BitmapActivity;
@@ -109,6 +111,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("web(简道云)");
         mItems.add("Staggered(瀑布流)");
         mItems.add("magicIndicator");
+        mItems.add("转场动画");
 //        mAdapter.notifyDataSetChanged();
     }
 
@@ -203,6 +206,10 @@ public class MainActivity extends BaseActivity {
             case 17:
                 startActivity(new Intent(MainActivity.this, MagicActivity.class));
                 break;
+            case 18:
+                Intent AnimationIntent = new Intent(MainActivity.this, TurnActivity.class);
+                startActivity(AnimationIntent, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
+                break;
         }
         if (mPopu != null) {
             mPopu.dismiss();
@@ -269,6 +276,10 @@ public class MainActivity extends BaseActivity {
                     break;
                 case 17:
                     startActivity(new Intent(MainActivity.this, MagicActivity.class));
+                    break;
+                case 18:
+                    Intent AnimationIntent = new Intent(MainActivity.this, TurnActivity.class);
+                    startActivity(AnimationIntent, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
                     break;
             }
         }

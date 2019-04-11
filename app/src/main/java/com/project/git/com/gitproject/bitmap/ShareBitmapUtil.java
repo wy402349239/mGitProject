@@ -165,23 +165,4 @@ public class ShareBitmapUtil {
         canvas.drawBitmap(second, 0, first.getHeight() - navigationHeight, null);
         return result;
     }
-
-
-    /**
-     * 获取导航栏高度
-     *
-     * @param context 上下文
-     * @return 导航栏高度
-     */
-    public int getNavigationHeight(Activity context) {
-        int result = 0;
-        int resourceId = 0;
-        int rid = context.getResources().getIdentifier("config_showNavigationBar", "bool", "android");
-        if (rid != 0) {
-            resourceId = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android");
-            return context.getResources().getDimensionPixelSize(resourceId);
-        } else {
-            return 0;
-        }
-    }
 }

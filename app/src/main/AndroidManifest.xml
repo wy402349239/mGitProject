@@ -113,6 +113,12 @@
         <activity
             android:name=".magicindicator.MagicActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".actAnimation.TurnActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".actAnimation.Turn2Activity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

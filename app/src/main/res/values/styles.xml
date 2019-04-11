@@ -10,9 +10,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:listDivider">@drawable/listdriver</item>
+        <item name="android:windowContentTransitions">true</item><!-- 转场动画 -->
     </style>
 
-    <style name="NullStyle" >
+    <style name="NullStyle">
         <item name="bgColor">#0492fb</item>
         <item name="textSize">50sp</item>
         <item name="radius">15dp</item>
