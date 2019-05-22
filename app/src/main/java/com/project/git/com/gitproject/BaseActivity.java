@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import crossoverone.statuslib.StatusUtil;
 
@@ -37,5 +38,14 @@ public class BaseActivity extends AppCompatActivity {
     protected void setSystemInvadeBlack() {
         // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
         StatusUtil.setSystemStatus(this, true, true);
+    }
+
+    public void changeStatuResource(int resourceId){
+        int identifier = getResources().getIdentifier("statusBarBackground", "id", "android");
+        View statuBar = getWindow().findViewById(identifier);
+        if (statuBar != null) {
+            statuBar.setBackgroundColor(Color.TRANSPARENT);
+            statuBar.setBackgroundResource(resourceId);
+        }
     }
 }

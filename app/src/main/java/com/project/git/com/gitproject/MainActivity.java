@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import com.project.git.com.gitproject.Sqlite.SqliteActivity;
 import com.project.git.com.gitproject.actAnimation.TurnActivity;
@@ -28,13 +30,17 @@ import com.project.git.com.gitproject.pic.PicScrollActivity;
 import com.project.git.com.gitproject.pictureinpicture.PicActivity;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
 import com.project.git.com.gitproject.size.SizeActivity;
+import com.project.git.com.gitproject.skin.SkinActivity;
 import com.project.git.com.gitproject.staggred.StaggredActivity;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
 import com.project.git.com.gitproject.wave.WaveActivity;
 import com.project.git.com.gitproject.web.WebActivity;
+import com.utilproject.wy.AppMessageUtil;
 import com.utilproject.wy.DeviceUtil;
+import com.utilproject.wy.EncryptUtil;
+import com.utilproject.wy.NetUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +80,18 @@ public class MainActivity extends BaseActivity {
             }
         });
         findViewById(R.id.popu_btn).setVisibility(View.GONE);
+        String appVersionCode = AppMessageUtil.getAppVersionCode(this);
+        String appVersionName = AppMessageUtil.getAppVersionName(this);
+        Log.e("Tag", appVersionCode + " --- " + appVersionName);
+        String myname = EncryptUtil.getMD5_32("myname");
+        String wy40234 = EncryptUtil.SHA1("Wy40234");//10.22.64.192
+        Log.e("Tag", myname + "\n" + wy40234);
+        String IP = NetUtil.generateIPAddress(this);
+        Log.e("Tag", "IP = " + IP);
+        Toast.makeText(this, IP, Toast.LENGTH_SHORT).show();
+        String macAddr = NetUtil.getMacAddrNew(this);
+        Log.e("Tag", "mac = " + macAddr);
+
     }
 
     RecyclerView.ItemDecoration mStaggredItemDecortation = new RecyclerView.ItemDecoration() {
@@ -112,6 +130,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("Staggered(瀑布流)");
         mItems.add("magicIndicator");
         mItems.add("转场动画");
+        mItems.add("换肤Skin");
 //        mAdapter.notifyDataSetChanged();
     }
 
@@ -210,6 +229,7 @@ public class MainActivity extends BaseActivity {
                 Intent AnimationIntent = new Intent(MainActivity.this, TurnActivity.class);
                 startActivity(AnimationIntent, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
                 break;
+
         }
         if (mPopu != null) {
             mPopu.dismiss();
@@ -280,6 +300,10 @@ public class MainActivity extends BaseActivity {
                 case 18:
                     Intent AnimationIntent = new Intent(MainActivity.this, TurnActivity.class);
                     startActivity(AnimationIntent, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
+                    break;
+                case 19:
+                    Intent SkinIntent = new Intent(MainActivity.this, SkinActivity.class);
+                    startActivity(SkinIntent);
                     break;
             }
         }

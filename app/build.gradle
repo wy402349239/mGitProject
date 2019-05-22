@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 // 依赖插件脚本
 apply from: 'tinker-support.gradle'
+apply plugin: 'com.google.protobuf'
 
 android {
     signingConfigs {
@@ -43,6 +44,33 @@ android {
     sourceSets.main {
         jniLibs.srcDirs = ['libs']
     }
+
+    protobuf {
+
+        protoc {
+            artifact = 'com.google.protobuf:protoc:3.0.0'
+        }
+
+        plugins {
+            javalite {
+                // The codegen for lite comes as a separate artifact
+                artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+            }
+        }
+
+        generateProtoTasks {
+            all().each { task ->
+                task.builtins {
+                    // In most cases you don't need the full Java output
+                    // if you use the lite output.
+                    remove java
+                }
+                task.plugins {
+                    javalite {}
+                }
+            }
+        }
+    }
 }
 
 // required
@@ -80,7 +108,7 @@ dependencies {
     compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8'
     // ExoPlayer as IMediaPlayer: optional, experimental
     compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.8'
-    implementation 'maven_wy:utilproject:1.0.8'
+    implementation 'maven_wy:utilproject:1.0.10'
     implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
     implementation 'com.tencent.bugly:nativecrashreport:latest.release'
@@ -104,4 +132,11 @@ dependencies {
     implementation 'com.android.support:cardview-v7:25.3.0'
 
     implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
+
+    implementation 'com.google.protobuf:protobuf-lite:3.0.0'
+
+    implementation 'skin.support:skin-support:3.1.1'                   // skin-support 基础控件支持
+    implementation 'skin.support:skin-support-design:3.1.1'            // skin-support-design material design 控件支持[可选]
+    implementation 'skin.support:skin-support-cardview:3.1.1'          // skin-support-cardview CardView 控件支持[可选]
+    implementation 'skin.support:skin-support-constraint-layout:3.1.1' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 }

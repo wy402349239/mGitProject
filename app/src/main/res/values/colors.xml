@@ -7,4 +7,12 @@
 
     <color name="theme">#FF0492FB</color>
     <color name="theme_air">#990492FB</color>
+
+    <color name="systemcolor">#FFFFFFFF</color>
+    <color name="systemcolor_night">#FF000000</color>
+    <color name="colorWave">#303F9F</color>
+    <color name="colorWave_night">#FFFFBB33</color>
+    <color name="color_btn">#000000</color>
+    <color name="color_btn_night">#FFFFFF</color>
+
 </resources>

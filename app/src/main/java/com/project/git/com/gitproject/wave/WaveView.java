@@ -2,8 +2,12 @@ package com.project.git.com.gitproject.wave;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,23 +17,29 @@ import com.project.git.com.gitproject.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import skin.support.SkinCompatManager;
+import skin.support.widget.SkinCompatBackgroundHelper;
+import skin.support.widget.SkinCompatSupportable;
+
 /**
  * @author jx_wy
  * @date 2:34 PM 2019/3/1
  * @email wangyu@51dianshijia.com
  * @description
  */
-public class WaveView extends View {
+public class WaveView extends View implements SkinCompatSupportable {
 
     private Paint mCenterPaint; //中心圆paint
     private int mRadius = 0; //中心圆半径  默认0
     private Paint mSpreadPaint; //扩散圆paint
+    private Paint mBackgroundPaint; //扩散圆paint
     private float centerX;//圆心x
     private float centerY;//圆心y
     private int mMaxRadius = 0; //最大圆半径，默认扩展到屏幕两边
     private List<Integer> spreadRadius = new ArrayList<>();//扩散圆层级数，元素为扩散的距离
     private List<Integer> alphas = new ArrayList<>();//对应每层圆的透明度
     private int mAlphaScale = 3;
+    private static final String NightSkin = "night";
 
     public WaveView(Context context) {
         this(context, null);
@@ -43,11 +53,15 @@ public class WaveView extends View {
         super(context, attrs, defStyleAttr);
 //        radius = (int) getResources().getDisplayMetrics().density * 50;
         mMaxRadius = getResources().getDisplayMetrics().widthPixels / 2;
-        int centerColor = context.getResources().getColor(R.color.colorPrimaryDark);
-        int spreadColor = context.getResources().getColor(R.color.colorPrimaryDark);
+        int centerColor = context.getResources().getColor(R.color.colorWave);
+        int spreadColor = context.getResources().getColor(R.color.colorWave);
 
         mCenterPaint = new Paint();
         mCenterPaint.setColor(centerColor);
+        mCenterPaint.setAntiAlias(true);
+
+        mBackgroundPaint = new Paint();
+        mBackgroundPaint.setColor(getResources().getColor(R.color.systemcolor));
         mCenterPaint.setAntiAlias(true);
 
         mSpreadPaint = new Paint();
@@ -95,6 +109,7 @@ public class WaveView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        canvas.drawRect(0, 0, WaveView.this.getWidth(), WaveView.this.getHeight(), mBackgroundPaint);
         super.onDraw(canvas);
         if (spreadRadius.isEmpty()) {
             return;
@@ -129,5 +144,20 @@ public class WaveView extends View {
             click();
         }
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    public void applySkin() {
+        String curSkinName = SkinCompatManager.getInstance().getCurSkinName();
+        if (curSkinName.equals(NightSkin)) {
+            mBackgroundPaint.setColor(getResources().getColor(R.color.systemcolor_night));
+            mCenterPaint.setColor(getResources().getColor(R.color.colorWave_night));
+            mSpreadPaint.setColor(getResources().getColor(R.color.colorWave_night));
+        } else {
+            mBackgroundPaint.setColor(getResources().getColor(R.color.systemcolor));
+            mCenterPaint.setColor(getResources().getColor(R.color.colorWave));
+            mSpreadPaint.setColor(getResources().getColor(R.color.colorWave));
+        }
+        invalidate();
     }
 }

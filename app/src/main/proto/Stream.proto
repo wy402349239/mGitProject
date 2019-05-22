@@ -1,0 +1,24 @@
+syntax = "proto3";
+package com.dianshijia.tvlive.model.stream;
+
+message Response {
+    int32    errCode              = 1;
+    string   msg                  = 2;
+    ChannelStream data = 3;
+}
+
+message ChannelStream {
+    repeated Stream    streams    = 1;
+    repeated TimeShift timeShifts = 2;
+}
+
+message Stream {
+    string id         = 1;
+    string url        = 2;
+    string definition = 3;
+}
+
+message TimeShift {
+    string id  = 1;
+    string url = 2;
+}
