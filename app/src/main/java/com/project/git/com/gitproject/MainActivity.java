@@ -26,6 +26,7 @@ import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.levitate.FloatActivity;
 import com.project.git.com.gitproject.listener.ItemEvent;
 import com.project.git.com.gitproject.magicindicator.MagicActivity;
+import com.project.git.com.gitproject.nesting.NestingActivity;
 import com.project.git.com.gitproject.pic.PicScrollActivity;
 import com.project.git.com.gitproject.pictureinpicture.PicActivity;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
@@ -131,6 +132,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("magicIndicator");
         mItems.add("转场动画");
         mItems.add("换肤Skin");
+        mItems.add("嵌套");
 //        mAdapter.notifyDataSetChanged();
     }
 
@@ -304,6 +306,10 @@ public class MainActivity extends BaseActivity {
                 case 19:
                     Intent SkinIntent = new Intent(MainActivity.this, SkinActivity.class);
                     startActivity(SkinIntent);
+                    break;
+                case 20:
+                    Intent NestIntent = new Intent(MainActivity.this, NestingActivity.class);
+                    startActivity(NestIntent);
                     break;
             }
         }

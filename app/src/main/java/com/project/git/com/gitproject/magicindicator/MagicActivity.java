@@ -64,7 +64,7 @@ public class MagicActivity extends BaseActivity {
         adapter.setFragments(mFragments);
         mViewpager.setAdapter(adapter);
         CommonNavigator commonNavigator = new CommonNavigator(MagicActivity.this);
-        final NavigatorAdapter navigatorAdapter = new NavigatorAdapter(mViewpager, mTitles);
+        final PrivateNavigatorAdapter navigatorAdapter = new PrivateNavigatorAdapter(mViewpager, mTitles);
         commonNavigator.setAdapter(navigatorAdapter);
         mIndicator.setNavigator(commonNavigator);
         ViewPagerHelper.bind(mIndicator, mViewpager);
@@ -95,7 +95,7 @@ public class MagicActivity extends BaseActivity {
         });
     }
 
-    private void getPaint(NavigatorAdapter adapter){
+    private void getPaint(PrivateNavigatorAdapter adapter){
         if (adapter.getPaint() != null){
             mPaint = adapter.getPaint();
         }else {
