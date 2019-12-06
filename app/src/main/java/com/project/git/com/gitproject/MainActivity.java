@@ -19,6 +19,7 @@ import com.project.git.com.gitproject.Sqlite.SqliteActivity;
 import com.project.git.com.gitproject.actAnimation.TurnActivity;
 import com.project.git.com.gitproject.animation.AnimationPropertyActivity;
 import com.project.git.com.gitproject.animation.AnimationTweenActivity;
+import com.project.git.com.gitproject.bezier.BezierAct;
 import com.project.git.com.gitproject.bitmap.BitmapActivity;
 import com.project.git.com.gitproject.canvas.CanvasActivity;
 import com.project.git.com.gitproject.common.util.PopuUtil;
@@ -35,6 +36,7 @@ import com.project.git.com.gitproject.skin.SkinActivity;
 import com.project.git.com.gitproject.staggred.StaggredActivity;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
+import com.project.git.com.gitproject.step.StepCountAct;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
 import com.project.git.com.gitproject.wave.WaveActivity;
 import com.project.git.com.gitproject.web.WebActivity;
@@ -133,6 +135,8 @@ public class MainActivity extends BaseActivity {
         mItems.add("转场动画");
         mItems.add("换肤Skin");
         mItems.add("嵌套");
+        mItems.add("计步");
+        mItems.add("贝塞尔曲线");
 //        mAdapter.notifyDataSetChanged();
     }
 
@@ -310,6 +314,14 @@ public class MainActivity extends BaseActivity {
                 case 20:
                     Intent NestIntent = new Intent(MainActivity.this, NestingActivity.class);
                     startActivity(NestIntent);
+                    break;
+                case 21:
+                    Intent StepIntent = new Intent(MainActivity.this, StepCountAct.class);
+                    startActivity(StepIntent);
+                    break;
+                case 22:
+                    Intent bezierIntent = new Intent(MainActivity.this, BezierAct.class);
+                    startActivity(bezierIntent);
                     break;
             }
         }

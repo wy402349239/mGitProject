@@ -17,6 +17,17 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.GET_TASKS" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-feature
+        android:name="android.hardware.sensor.stepcounter"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.sensor.stepdetector"
+        android:required="true" />
+
     <application
         android:name=".DemoApp"
         android:allowBackup="true"
@@ -124,6 +135,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".nesting.NestingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".step.StepCountAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bezier.BezierAct"
             android:screenOrientation="portrait" />
     </application>
 
