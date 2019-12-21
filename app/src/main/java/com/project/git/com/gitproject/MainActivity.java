@@ -30,6 +30,7 @@ import com.project.git.com.gitproject.magicindicator.MagicActivity;
 import com.project.git.com.gitproject.nesting.NestingActivity;
 import com.project.git.com.gitproject.pic.PicScrollActivity;
 import com.project.git.com.gitproject.pictureinpicture.PicActivity;
+import com.project.git.com.gitproject.pmd.PmdAct;
 import com.project.git.com.gitproject.rxjava.RxJavaActivity;
 import com.project.git.com.gitproject.size.SizeActivity;
 import com.project.git.com.gitproject.skin.SkinActivity;
@@ -137,6 +138,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("嵌套");
         mItems.add("计步");
         mItems.add("贝塞尔曲线");
+        mItems.add("跑马灯");
 //        mAdapter.notifyDataSetChanged();
     }
 
@@ -322,6 +324,10 @@ public class MainActivity extends BaseActivity {
                 case 22:
                     Intent bezierIntent = new Intent(MainActivity.this, BezierAct.class);
                     startActivity(bezierIntent);
+                    break;
+                case 23:
+                    Intent pmdIntent = new Intent(MainActivity.this, PmdAct.class);
+                    startActivity(pmdIntent);
                     break;
             }
         }

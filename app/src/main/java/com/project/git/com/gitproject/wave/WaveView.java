@@ -161,3 +161,129 @@ public class WaveView extends View implements SkinCompatSupportable {
         invalidate();
     }
 }
+
+
+//package com.project.git.com.gitproject.pmd;
+//
+//        import android.content.Context;
+//        import android.graphics.Canvas;
+//        import android.graphics.Color;
+//        import android.graphics.Matrix;
+//        import android.graphics.Paint;
+//        import android.graphics.RectF;
+//        import android.graphics.SweepGradient;
+//        import android.os.Handler;
+//        import android.util.AttributeSet;
+//        import android.view.View;
+//
+///**
+// * created by wangyu on 2019-12-12
+// * description :
+// */
+//public class PmdView2 extends View {
+//
+//    Paint mPaint;
+//    private int mW;
+//    private int mH;
+//    private int mStockWidth = 10;
+//    private int mRadius = 50;
+//    private float mTrans = 0.05f;
+//
+//    private Handler handler = null;
+//    private float angle = 0;
+//
+//    private int[] colorStart = null;
+//    private int[] colorEnd = null;
+//
+//    public PmdView2(Context context) {
+//        this(context, null);
+//    }
+//
+//    public PmdView2(Context context, AttributeSet attrs) {
+//        this(context, attrs, 0);
+//    }
+//
+//    public PmdView2(Context context, AttributeSet attrs, int defStyleAttr) {
+//        super(context, attrs, defStyleAttr);
+//        init();
+//    }
+//
+//    private void init() {
+//        mPaint = new Paint();
+//        mPaint.setColor(Color.GRAY);
+//        mPaint.setAntiAlias(true);
+//        mPaint.setStrokeWidth(mStockWidth);
+//        mPaint.setStyle(Paint.Style.STROKE);
+//        PmdView2.this.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startPlay(new int[]{Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE});
+//            }
+//        });
+//    }
+//
+//    public void startPlay(int[] colors) {
+//        this.colorStart = new int[colors.length + 2];
+//        this.colorEnd = new int[colors.length + 2];
+//        for (int i = 0; i < this.colorStart.length; i++) {
+//            this.colorStart[i] = i < colors.length ? colors[i] : Color.TRANSPARENT;
+//        }
+//        for (int i = 0; i < this.colorEnd.length; i++) {
+//            this.colorEnd[i] = i < 1 || i ==  this.colorEnd.length - 1? Color.BLACK : colors[i - 1];
+//        }
+//        invalidate();
+//    }
+//
+//    @Override
+//    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+//        super.onSizeChanged(w, h, oldw, oldh);
+//        mW = w;
+//        mH = h;
+//    }
+//
+//    @Override
+//    protected void onDraw(Canvas canvas) {
+//        super.onDraw(canvas);
+//        if (colorStart == null || colorStart.length <= 1){
+//            return;
+//        }
+////        drawLine(true, canvas);
+//        drawLine(false, canvas);
+//
+////        angle += 1;
+////        invalidate();
+//    }
+//
+//    private void drawLine(boolean isStart, Canvas canvas){
+//        int nHalfWidth = mStockWidth / 2;
+//        SweepGradient sweepGradient = new SweepGradient(mW / 2, mH / 2, isStart ? colorStart : colorEnd, getPositions(isStart));
+//        Matrix matrix = new Matrix();
+//        matrix.setRotate(angle + (isStart ? 0 : 135), mW / 2, mH / 2);
+//        sweepGradient.setLocalMatrix(matrix);
+//        mPaint.setShader(sweepGradient);
+//        canvas.drawRoundRect(new RectF(nHalfWidth, nHalfWidth, mW - nHalfWidth, mH - nHalfWidth), mRadius, mRadius, mPaint);
+//    }
+//
+//    private float[] getPositions(boolean isStart) {
+//        float[] result = new float[colorStart.length];
+//        float mult = (0.5f - mTrans) / (result.length - 3);
+//        if (isStart){
+//            for (int i = 0; i < result.length; i++) {
+//                if (colorStart[i] == Color.TRANSPARENT){
+//                    result[i] = result[i - 1];
+//                }else {
+//                    result[i] = mult * i;
+//                }
+//            }
+//        }else {
+//            for (int i = 0; i < result.length; i++) {
+//                if (colorEnd[i] == Color.BLACK){
+//                    result[i] = i == 0 ? 0.5f : result[i - 1];
+//                }else {
+//                    result[i] = mult * (i - 2) + 0.5f;
+//                }
+//            }
+//        }
+//        return result;
+//    }
+//}

@@ -6,6 +6,25 @@
         <attr name="radius" format="dimension" />
         <attr name="name" format="reference" />
     </declare-styleable>
+
+    <!--跑马灯效果-->
+    <declare-styleable name="MddPmdView">
+        <!--外层圆角  dp-->
+        <attr name="pmdRadiu" format="integer" />
+        <!--点半径 dp-->
+        <attr name="pmdCirlRadiu" format="integer" />
+        <!--边框线颜色-->
+        <attr name="pmdStockColor" format="color" />
+        <!--边框线宽度 px-->
+        <attr name="pmdStockWidth" format="integer" />
+        <!--外层背景色-->
+        <attr name="pmdBgColor" format="color" />
+        <!--线上原点个数-->
+        <attr name="pmdPointCount" format="integer" />
+        <!--颜色变换频率-->
+        <attr name="pmdDuration" format="integer" />
+    </declare-styleable>
+
     <item name="tag_first" type="id" />
     <item name="tag_second" type="id" />
 </resources>

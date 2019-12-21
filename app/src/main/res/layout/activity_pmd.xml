@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.project.git.com.gitproject.pmd.MddPmdView
+        android:id="@+id/pmd_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        app:pmdBgColor="@android:color/darker_gray"
+        app:pmdCirlRadiu="2"
+        app:pmdDuration="200"
+        app:pmdPointCount="48"
+        app:pmdRadiu="15"
+        app:pmdStockColor="#f3a33c"
+        app:pmdStockWidth="2" />
+
+    <com.project.git.com.gitproject.pmd.MddPmdView2
+        android:id="@+id/pmd_view2"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp" />
+
+    <com.project.git.com.gitproject.pmd.BtnView
+        android:id="@+id/pmd_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp" />
+</LinearLayout>

@@ -142,6 +142,9 @@
         <activity
             android:name=".bezier.BezierAct"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".pmd.PmdAct"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
