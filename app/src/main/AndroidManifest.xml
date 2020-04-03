@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.project.git.com.gitproject">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -145,6 +146,22 @@
         <activity
             android:name=".pmd.PmdAct"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".alisign.AliSignAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".lock.LockAct"
+            android:screenOrientation="portrait" />
+
+        <activity android:name="com.alipay.sdk.app.AlipayResultActivity" tools:node="merge">
+            <intent-filter tools:node="replace">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="__alipay_git__"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
