@@ -2,7 +2,10 @@ package com.project.git.com.gitproject.pic;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.project.git.com.gitproject.BaseActivity;
 import com.project.git.com.gitproject.R;
@@ -25,6 +28,7 @@ public class PicScrollActivity extends BaseActivity {
 
     private RecyclerView mTopRv;
     private List<String> mUrls;
+    private TabLayout mTab;
 
     private CardScrollRecyclerView mBottonRv;
 
@@ -40,6 +44,7 @@ public class PicScrollActivity extends BaseActivity {
 
     private void initTopRv(){
         mTopRv = findViewById(R.id.pic_rv_top);
+        mTab = findViewById(R.id.pic_tab);
         GalleryLayoutManager manager = new GalleryLayoutManager(GalleryLayoutManager.HORIZONTAL);
         manager.attach(mTopRv);
         ScrollTransformer transformer = new ScrollTransformer();
@@ -53,9 +58,38 @@ public class PicScrollActivity extends BaseActivity {
         mUrls.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551099497293&di=4453d4f44456f226ddd7ea297dd120e6&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01fdbd59102f7ca801216a3eeae036.jpg%401280w_1l_2o_100sh.jpg");
         mUrls.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551099528754&di=c8c47a8cafd1682f317339f7ff123d26&imgtype=0&src=http%3A%2F%2Fww2.sinaimg.cn%2Flarge%2F71b2cbb3gw1f5i55vwmjxj21kw1b8the.jpg");
 
-        ScrollAdapter adapter = new ScrollAdapter(PicScrollActivity.this, mUrls);
+        mTab.setTabMode(TabLayout.MODE_SCROLLABLE);
+        for (int i = 0; i < mUrls.size(); i++) {
+            TabLayout.Tab tab = mTab.newTab();
+            View root = View.inflate(PicScrollActivity.this, R.layout.item_hl_tab, null);
+            AppCompatTextView title = root.findViewById(R.id.tab_title);
+            title.setText(String.valueOf(i + 1));
+            title.setTag(R.id.tag_second, i);
+            title.setOnClickListener(listener);
+            tab.setCustomView(root);
+            mTab.addTab(tab);
+        }
+
+        final ScrollAdapter adapter = new ScrollAdapter(PicScrollActivity.this, mUrls);
         mTopRv.setAdapter(adapter);
+        manager.setOnItemSelectedListener(new GalleryLayoutManager.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(RecyclerView recyclerView, View item, int position) {
+                mTab.setScrollPosition(position, 0, true);
+            }
+        });
     }
+
+    private View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Object tag = v.getTag(R.id.tag_second);
+            if (tag != null){
+                int index = Integer.parseInt(tag.toString());
+                mTopRv.smoothScrollToPosition(index);
+            }
+        }
+    };
 
     private void initBottomRv(){
         int[] rs = new int[]{R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4};

@@ -8,12 +8,18 @@ import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.project.git.com.gitproject.levitate.FloatActivity;
 import com.project.git.com.gitproject.pic.PicScrollActivity;
 import com.tencent.bugly.Bugly;
 import com.tencent.tinker.loader.app.TinkerApplication;
 import com.tencent.tinker.loader.shareutil.ShareConstants;
+import com.tmall.wireless.tangram.TangramBuilder;
+import com.tmall.wireless.tangram.util.IInnerImageSetter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -69,6 +75,13 @@ public class DemoApp extends TinkerApplication {
         Bugly.init(DemoApp.this.getApplicationContext(), "578d30338d", true);
         addCut();
         initSkinSupport();
+
+        TangramBuilder.init(this, new IInnerImageSetter() {
+            @Override
+            public <IMAGE extends ImageView> void doLoadImageUrl(@NonNull IMAGE view, @Nullable String url) {
+                Glide.with(getApplicationContext()).load(url).into(view);
+            }
+        }, ImageView.class);
     }
 
     /**

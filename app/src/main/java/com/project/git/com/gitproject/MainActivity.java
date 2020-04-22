@@ -44,6 +44,7 @@ import com.project.git.com.gitproject.staggred.StaggredActivity;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
 import com.project.git.com.gitproject.step.StepCountAct;
+import com.project.git.com.gitproject.tangram.HomePageAct;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
 import com.project.git.com.gitproject.wave.WaveActivity;
 import com.project.git.com.gitproject.web.WebActivity;
@@ -68,10 +69,125 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity {
 
-    RecyclerView mRv;
-    private List<String> mItems = new ArrayList<>();
-    MainRvAdapter mAdapter;
     static final int mItemSpanCount = 2;
+    RecyclerView mRv;
+    MainRvAdapter mAdapter;
+    RecyclerView.ItemDecoration mStaggredItemDecortation = new RecyclerView.ItemDecoration() {
+        @Override
+        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+            StaggeredGridLayoutManager.LayoutParams param = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
+            int spanIndex = param.getSpanIndex();
+            outRect.top = 10;
+            if (spanIndex == 0) {
+                outRect.left = 20;
+                outRect.right = 10;
+            } else {
+                outRect.left = 10;
+                outRect.right = 20;
+            }
+        }
+    };
+    View.OnClickListener mOnItemclick = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            final int positon = Integer.parseInt(view.getTag().toString());
+            switch (positon) {
+                case 0:
+                    startActivity(new Intent(MainActivity.this, BitmapActivity.class));
+                    break;
+                case 1:
+                    startActivity(new Intent(MainActivity.this, RxJavaActivity.class));
+                    break;
+                case 2:
+                    startActivity(new Intent(MainActivity.this, ActivityIjk.class));
+                    break;
+                case 3:
+                    startActivity(new Intent(MainActivity.this, SqliteActivity.class));
+                    break;
+                case 4:
+                    startActivity(new Intent(MainActivity.this, FloatActivity.class));
+                    break;
+                case 5:
+                    startActivity(new Intent(MainActivity.this, TransStatuActivity.class));
+                    break;
+                case 6:
+                    startActivity(new Intent(MainActivity.this, GradintActivity.class));
+                    break;
+                case 7:
+                    startActivity(new Intent(MainActivity.this, PagerActivity.class));
+                    break;
+                case 8:
+                    startActivity(new Intent(MainActivity.this, SizeActivity.class));
+                    break;
+                case 9:
+                    startActivity(new Intent(MainActivity.this, PicActivity.class));
+                    break;
+                case 10:
+                    startActivity(new Intent(MainActivity.this, AnimationTweenActivity.class));
+                    break;
+                case 11:
+                    startActivity(new Intent(MainActivity.this, AnimationPropertyActivity.class));
+                    break;
+                case 12:
+                    startActivity(new Intent(MainActivity.this, CanvasActivity.class));
+                    break;
+                case 13:
+                    startActivity(new Intent(MainActivity.this, PicScrollActivity.class));
+                    break;
+                case 14:
+                    startActivity(new Intent(MainActivity.this, WaveActivity.class));
+                    break;
+                case 15:
+                    Intent intentJdy = new Intent(MainActivity.this, WebActivity.class);
+                    intentJdy.putExtra("url", "https://link.jiandaoyun.com/f/5c777f6c46fd3c26447509c6");
+                    startActivity(intentJdy);
+                    break;
+                case 16:
+                    startActivity(new Intent(MainActivity.this, StaggredActivity.class));
+                    break;
+                case 17:
+                    startActivity(new Intent(MainActivity.this, MagicActivity.class));
+                    break;
+                case 18:
+                    Intent AnimationIntent = new Intent(MainActivity.this, TurnActivity.class);
+                    startActivity(AnimationIntent, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
+                    break;
+                case 19:
+                    Intent SkinIntent = new Intent(MainActivity.this, SkinActivity.class);
+                    startActivity(SkinIntent);
+                    break;
+                case 20:
+                    Intent NestIntent = new Intent(MainActivity.this, NestingActivity.class);
+                    startActivity(NestIntent);
+                    break;
+                case 21:
+                    Intent StepIntent = new Intent(MainActivity.this, StepCountAct.class);
+                    startActivity(StepIntent);
+                    break;
+                case 22:
+                    Intent bezierIntent = new Intent(MainActivity.this, BezierAct.class);
+                    startActivity(bezierIntent);
+                    break;
+                case 23:
+                    Intent pmdIntent = new Intent(MainActivity.this, PmdAct.class);
+                    startActivity(pmdIntent);
+                    break;
+                case 24:
+                    Intent aliIntent = new Intent(MainActivity.this, AliSignAct.class);
+                    startActivity(aliIntent);
+                    break;
+                case 25:
+                    Intent lockIntent = new Intent(MainActivity.this, LockAct.class);
+                    startActivity(lockIntent);
+                    break;
+                case 26:
+                    Intent homepageIntent = new Intent(MainActivity.this, HomePageAct.class);
+                    startActivity(homepageIntent);
+                    break;
+            }
+        }
+    };
+    private List<String> mItems = new ArrayList<>();
     private PopupWindow mPopu;
 
     @Override
@@ -312,22 +428,6 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    RecyclerView.ItemDecoration mStaggredItemDecortation = new RecyclerView.ItemDecoration() {
-        @Override
-        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-            StaggeredGridLayoutManager.LayoutParams param = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
-            int spanIndex = param.getSpanIndex();
-            outRect.top = 10;
-            if (spanIndex == 0) {
-                outRect.left = 20;
-                outRect.right = 10;
-            } else {
-                outRect.left = 10;
-                outRect.right = 20;
-            }
-        }
-    };
-
     private void addItems() {
         mItems.add("bitmap");
         mItems.add("RxJava");
@@ -355,20 +455,11 @@ public class MainActivity extends BaseActivity {
         mItems.add("跑马灯");
         mItems.add("alipay");
         mItems.add("lock");
+        mItems.add("tanfram\nHomePage");
 //        mAdapter.notifyDataSetChanged();
     }
 
     class MainRvAdapter extends RecyclerView.Adapter<MainRvAdapter.MainHolder> {
-
-        class MainHolder extends RecyclerView.ViewHolder {
-
-            Button nButton;
-
-            public MainHolder(View itemView) {
-                super(itemView);
-                nButton = itemView.findViewById(R.id.activity_main_item_btn);
-            }
-        }
 
         @Override
         public MainHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -389,104 +480,17 @@ public class MainActivity extends BaseActivity {
         public int getItemCount() {
             return mItems.size();
         }
-    }
 
-    View.OnClickListener mOnItemclick = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            final int positon = Integer.parseInt(view.getTag().toString());
-            switch (positon) {
-                case 0:
-                    startActivity(new Intent(MainActivity.this, BitmapActivity.class));
-                    break;
-                case 1:
-                    startActivity(new Intent(MainActivity.this, RxJavaActivity.class));
-                    break;
-                case 2:
-                    startActivity(new Intent(MainActivity.this, ActivityIjk.class));
-                    break;
-                case 3:
-                    startActivity(new Intent(MainActivity.this, SqliteActivity.class));
-                    break;
-                case 4:
-                    startActivity(new Intent(MainActivity.this, FloatActivity.class));
-                    break;
-                case 5:
-                    startActivity(new Intent(MainActivity.this, TransStatuActivity.class));
-                    break;
-                case 6:
-                    startActivity(new Intent(MainActivity.this, GradintActivity.class));
-                    break;
-                case 7:
-                    startActivity(new Intent(MainActivity.this, PagerActivity.class));
-                    break;
-                case 8:
-                    startActivity(new Intent(MainActivity.this, SizeActivity.class));
-                    break;
-                case 9:
-                    startActivity(new Intent(MainActivity.this, PicActivity.class));
-                    break;
-                case 10:
-                    startActivity(new Intent(MainActivity.this, AnimationTweenActivity.class));
-                    break;
-                case 11:
-                    startActivity(new Intent(MainActivity.this, AnimationPropertyActivity.class));
-                    break;
-                case 12:
-                    startActivity(new Intent(MainActivity.this, CanvasActivity.class));
-                    break;
-                case 13:
-                    startActivity(new Intent(MainActivity.this, PicScrollActivity.class));
-                    break;
-                case 14:
-                    startActivity(new Intent(MainActivity.this, WaveActivity.class));
-                    break;
-                case 15:
-                    Intent intentJdy = new Intent(MainActivity.this, WebActivity.class);
-                    intentJdy.putExtra("url", "https://link.jiandaoyun.com/f/5c777f6c46fd3c26447509c6");
-                    startActivity(intentJdy);
-                    break;
-                case 16:
-                    startActivity(new Intent(MainActivity.this, StaggredActivity.class));
-                    break;
-                case 17:
-                    startActivity(new Intent(MainActivity.this, MagicActivity.class));
-                    break;
-                case 18:
-                    Intent AnimationIntent = new Intent(MainActivity.this, TurnActivity.class);
-                    startActivity(AnimationIntent, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
-                    break;
-                case 19:
-                    Intent SkinIntent = new Intent(MainActivity.this, SkinActivity.class);
-                    startActivity(SkinIntent);
-                    break;
-                case 20:
-                    Intent NestIntent = new Intent(MainActivity.this, NestingActivity.class);
-                    startActivity(NestIntent);
-                    break;
-                case 21:
-                    Intent StepIntent = new Intent(MainActivity.this, StepCountAct.class);
-                    startActivity(StepIntent);
-                    break;
-                case 22:
-                    Intent bezierIntent = new Intent(MainActivity.this, BezierAct.class);
-                    startActivity(bezierIntent);
-                    break;
-                case 23:
-                    Intent pmdIntent = new Intent(MainActivity.this, PmdAct.class);
-                    startActivity(pmdIntent);
-                    break;
-                case 24:
-                    Intent aliIntent = new Intent(MainActivity.this, AliSignAct.class);
-                    startActivity(aliIntent);
-                    break;
-                case 25:
-                    Intent lockIntent = new Intent(MainActivity.this, LockAct.class);
-                    startActivity(lockIntent);
-                    break;
+        class MainHolder extends RecyclerView.ViewHolder {
+
+            Button nButton;
+
+            public MainHolder(View itemView) {
+                super(itemView);
+                nButton = itemView.findViewById(R.id.activity_main_item_btn);
             }
         }
-    };
+    }
 
     class MainItemDecoration extends RecyclerView.ItemDecoration {
         @Override

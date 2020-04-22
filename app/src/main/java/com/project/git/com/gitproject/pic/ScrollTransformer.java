@@ -14,7 +14,7 @@ import github.hellocsl.layoutmanager.gallery.GalleryLayoutManager;
  */
 public class ScrollTransformer implements GalleryLayoutManager.ItemTransformer {
 
-    private float mScaleSize = 0.3f;//未在中间显示的元素，比中间元素小的比例
+    private float mScaleSize = 0.16f;//未在中间显示的元素，比中间元素小的比例
 
     @Override
     public void transformItem(GalleryLayoutManager layoutManager, View item, float fraction) {

@@ -68,12 +68,18 @@ public class PrivateNavigatorAdapter extends CommonNavigatorAdapter {
         return mTitles == null ? 0 : mTitles.size();
     }
 
+    private int mDefaultColor = 0xff000000;
+
+    public void setDefaultColor(int defaultColor) {
+        this.mDefaultColor = defaultColor;
+    }
+
     @Override
     public IPagerTitleView getTitleView(Context context, final int index) {
         SimplePagerTitleView simplePagerTitleView = new SimplePagerTitleView(context);
         simplePagerTitleView.setText(mTitles.get(index));
         simplePagerTitleView.setTextSize(typeValue, textSize);
-        simplePagerTitleView.setNormalColor(0xff000000);
+        simplePagerTitleView.setNormalColor(mDefaultColor);
         simplePagerTitleView.setSelectedColor(0xff0492fb);
         simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
             @Override

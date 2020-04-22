@@ -153,6 +153,9 @@
         <activity
             android:name=".lock.LockAct"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".tangram.HomePageAct"
+            android:screenOrientation="portrait" />
 
         <activity android:name="com.alipay.sdk.app.AlipayResultActivity" tools:node="merge">
             <intent-filter tools:node="replace">

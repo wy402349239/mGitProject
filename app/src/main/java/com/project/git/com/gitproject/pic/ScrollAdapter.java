@@ -1,6 +1,8 @@
 package com.project.git.com.gitproject.pic;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,8 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ScrollHold
     private List<String> mUrls;
     private int mImgWidth, mIngHeight;
 
+    private View.OnClickListener listener = null;
+
     public ScrollAdapter(Context ctx, List<String> urls) {
         this.mCtx = ctx;
         if (mUrls == null){
@@ -33,8 +37,13 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ScrollHold
         if (urls != null && !urls.isEmpty()){
             mUrls.addAll(ListUtil.deepCopy(urls));
         }
-        mImgWidth = mCtx.getResources().getDisplayMetrics().widthPixels / 3;
-        mIngHeight = mImgWidth * 4 / 3;
+        int widthPixels = mCtx.getResources().getDisplayMetrics().widthPixels;
+        mImgWidth = widthPixels * 3 / 4;
+        mIngHeight = widthPixels;
+    }
+
+    public int getImgWidth() {
+        return mImgWidth;
     }
 
     @Override
@@ -46,7 +55,12 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ScrollHold
 
     @Override
     public void onBindViewHolder(ScrollHolder holder, int position) {
-        Glide.with(mCtx).load(mUrls.get(position)).into(holder.img);
+        Glide.with(mCtx).load(mUrls.get(position))
+                .into(holder.img);
+        holder.desc.setText(mUrls.get(position));
+        if (listener != null){
+            holder.desc.setOnClickListener(listener);
+        }
     }
 
     @Override
@@ -57,10 +71,16 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.ScrollHold
     static class ScrollHolder extends RecyclerView.ViewHolder{
 
         ImageView img;
+        AppCompatTextView desc;
 
         public ScrollHolder(View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.picscroll_item_top_img);
+            desc = itemView.findViewById(R.id.picscroll_item_top_desc);
         }
+    }
+
+    public void setListener(View.OnClickListener listener) {
+        this.listener = listener;
     }
 }
