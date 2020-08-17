@@ -39,4 +39,6 @@ public class CardScrollRecyclerView extends RecyclerView {
     public void setFling(boolean isFling) {
         this.mIsFling = isFling;
     }
+
+
 }

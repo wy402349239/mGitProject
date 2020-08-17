@@ -67,30 +67,52 @@ public class MagicActivity extends BaseActivity {
         final PrivateNavigatorAdapter navigatorAdapter = new PrivateNavigatorAdapter(mViewpager, mTitles);
         commonNavigator.setAdapter(navigatorAdapter);
         mIndicator.setNavigator(commonNavigator);
-        ViewPagerHelper.bind(mIndicator, mViewpager);
+        bind(mIndicator, mViewpager);
         getPaint(navigatorAdapter);
         mViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int i, float v, int i1) {
-
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                Log.e("Tag", "onPageScrolled = " + position + " /// " + positionOffset + " //// " + positionOffsetPixels);
             }
 
             @Override
-            public void onPageSelected(int i) {
+            public void onPageSelected(int index) {
                 getPaint(navigatorAdapter);
                 IPagerIndicator indicatorP = navigatorAdapter.getIndicator(MagicActivity.this);
                 if (indicatorP instanceof LinePagerIndicator){
                     LinePagerIndicator indicator = (LinePagerIndicator)indicatorP;
-                    float nWidth = mPaint.measureText(mTitles[i]);
+                    float nWidth = mPaint.measureText(mTitles[index]);
                     indicator.setLineWidth(nWidth);
                     indicator.invalidate();
                     Log.e("Tag", "nwidth = " + nWidth);
                 }
+                Log.e("Tag", "onPageSelected = " + index);
             }
 
             @Override
-            public void onPageScrollStateChanged(int i) {
+            public void onPageScrollStateChanged(int state) {
+                Log.e("Tag", "onPageScrollStateChanged = " + state);
+            }
+        });
+    }
 
+    public static void bind(final MagicIndicator magicIndicator, ViewPager viewPager) {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                magicIndicator.onPageScrolled(position, positionOffset, positionOffsetPixels);
+                Log.e("Tag", position + " / " + positionOffset + " === " + positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                magicIndicator.onPageSelected(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                magicIndicator.onPageScrollStateChanged(state);
             }
         });
     }

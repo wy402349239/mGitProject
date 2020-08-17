@@ -52,20 +52,24 @@ public class Turn2Activity extends BaseActivity {
                 findViewById(R.id.turn_share_2).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(Turn2Activity.this, TurnActivity.class),
-                                ActivityOptions.makeSceneTransitionAnimation
-                                        (Turn2Activity.this, v, "btn2").toBundle());
-                        finish();
+                        onBackPressed();
                     }
                 });
                 break;
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent AnimationIntent = new Intent(Turn2Activity.this, TurnActivity.class);
-        startActivity(AnimationIntent, ActivityOptions.makeSceneTransitionAnimation(Turn2Activity.this).toBundle());
-        finish();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        Intent AnimationIntent = new Intent(Turn2Activity.this, TurnActivity.class);
+//        int type = getIntent().getIntExtra("type", 0);
+//        if (type == 2) {
+//            startActivity(AnimationIntent,
+//                    ActivityOptions.makeSceneTransitionAnimation
+//                            (Turn2Activity.this, findViewById(R.id.turn_share_2), "btn2").toBundle());
+//        } else {
+//            startActivity(AnimationIntent, ActivityOptions.makeSceneTransitionAnimation(Turn2Activity.this).toBundle());
+//        }
+//        finish();
+//    }
 }

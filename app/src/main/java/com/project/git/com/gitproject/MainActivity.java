@@ -1,5 +1,6 @@
 package com.project.git.com.gitproject;
 
+import android.animation.ValueAnimator;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.project.git.com.gitproject.Sqlite.SqliteActivity;
 import com.project.git.com.gitproject.actAnimation.TurnActivity;
 import com.project.git.com.gitproject.alisign.AliSignAct;
@@ -223,6 +225,24 @@ public class MainActivity extends BaseActivity {
 //        writeSp();
         dataMove();
         logAllPkg();
+
+//        final LottieAnimationView lottieAnimationView = findViewById(R.id.demo_main_lottie);
+//        lottieAnimationView.setImageAssetsFolder("images/");
+//        lottieAnimationView.setAnimation("rp_head_feature_left_anim.json");
+////        lottieAnimationView.playAnimation();
+//        lottieAnimationView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                lottieAnimationView.cancelAnimation();
+////                lottieAnimationView.playAnimation();
+//            }
+//        });
+//        lottieAnimationView.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            @Override
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                Log.e("Tag", String.valueOf(animation.getAnimatedFraction()));
+//            }
+//        });
     }
 
     private void logAllPkg() {
@@ -235,10 +255,7 @@ public class MainActivity extends BaseActivity {
             String packageName = info.activityInfo.packageName;
             CharSequence cls = info.activityInfo.name;
             CharSequence name = info.activityInfo.loadLabel(getPackageManager());
-            if (packageName.contains("tvlive")) {
-                Log.e("^^^^^^^", name + "----" + packageName + "----" + cls);
-            }
-            Log.e("！！！！！", name + "----" + packageName + "----" + cls);
+            Log.e("tag", name + "----" + packageName + "----" + cls);
         }
     }
 

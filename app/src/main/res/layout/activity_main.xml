@@ -29,4 +29,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/popu_btn" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/demo_main_lottie"
+        android:layout_width="match_parent"
+        app:lottie_loop="false"
+        app:lottie_autoPlay="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintDimensionRatio="h,1:1"/>
+
 </android.support.constraint.ConstraintLayout>

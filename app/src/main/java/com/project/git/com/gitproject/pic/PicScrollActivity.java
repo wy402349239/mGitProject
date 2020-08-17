@@ -1,10 +1,12 @@
 package com.project.git.com.gitproject.pic;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.project.git.com.gitproject.BaseActivity;
@@ -45,7 +47,7 @@ public class PicScrollActivity extends BaseActivity {
     private void initTopRv(){
         mTopRv = findViewById(R.id.pic_rv_top);
         mTab = findViewById(R.id.pic_tab);
-        GalleryLayoutManager manager = new GalleryLayoutManager(GalleryLayoutManager.HORIZONTAL);
+        GalleryManager manager = new GalleryManager(GalleryLayoutManager.HORIZONTAL);
         manager.attach(mTopRv);
         ScrollTransformer transformer = new ScrollTransformer();
         manager.setItemTransformer(transformer);
@@ -72,13 +74,27 @@ public class PicScrollActivity extends BaseActivity {
 
         final ScrollAdapter adapter = new ScrollAdapter(PicScrollActivity.this, mUrls);
         mTopRv.setAdapter(adapter);
-        manager.setOnItemSelectedListener(new GalleryLayoutManager.OnItemSelectedListener() {
+        manager.setOnItemSelectedListener(new GalleryManager.OnItemSelectedListener() {
             @Override
             public void onItemSelected(RecyclerView recyclerView, View item, int position) {
                 mTab.setScrollPosition(position, 0, true);
             }
         });
+        mTopRv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                scrollX += dx;
+            }
+        });
     }
+
+    private int scrollX = 0;
 
     private View.OnClickListener listener = new View.OnClickListener() {
         @Override

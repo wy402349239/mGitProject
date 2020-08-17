@@ -47,12 +47,10 @@ public class TurnActivity extends BaseActivity implements View.OnClickListener {
             case R.id.turn_share:
                 intent.putExtra("type", 2);
                 startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(TurnActivity.this, v, "btn").toBundle());
-                finish();
                 break;
             case R.id.turn_share_2:
                 intent.putExtra("type", 2);
                 startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(TurnActivity.this, Pair.create(v, "btn"), Pair.create(v, "btn2")).toBundle());
-                finish();
                 break;
         }
     }

@@ -23,6 +23,11 @@
         <com.project.git.com.gitproject.wave.WaveView
             android:id="@+id/wave_img_top"
             android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent" />
+
+        <com.project.git.com.gitproject.wave.WaveView3
+            android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </RelativeLayout>

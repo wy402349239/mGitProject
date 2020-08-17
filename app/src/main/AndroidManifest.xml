@@ -20,8 +20,10 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
     <uses-feature android:name="android.hardware.sensor.accelerometer" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <uses-feature
         android:name="android.hardware.sensor.stepcounter"
         android:required="true" />
@@ -41,6 +43,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -127,6 +130,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".actAnimation.TurnActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".actAnimation.Turn2Activity"
@@ -157,12 +161,16 @@
             android:name=".tangram.HomePageAct"
             android:screenOrientation="portrait" />
 
-        <activity android:name="com.alipay.sdk.app.AlipayResultActivity" tools:node="merge">
+        <activity
+            android:name="com.alipay.sdk.app.AlipayResultActivity"
+            tools:node="merge">
             <intent-filter tools:node="replace">
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="__alipay_git__"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="__alipay_git__" />
             </intent-filter>
         </activity>
     </application>
