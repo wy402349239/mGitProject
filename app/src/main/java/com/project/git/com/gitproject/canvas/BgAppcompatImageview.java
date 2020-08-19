@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 
 /**
  * created by wangyu on 2020/6/22 7:50 PM
- * description:
+ * description:阴影，根据次方，计算阴影，平滑过渡(效果不理想)
  */
 public class BgAppcompatImageview extends AppCompatImageView {
 

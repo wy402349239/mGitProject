@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -9,8 +10,8 @@
     <com.project.git.com.gitproject.canvas.BgAppcompatImageview
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/tab_coin_n2"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/tab_coin_n2" />
 
 
     <com.project.git.com.gitproject.canvas.NullTextView
@@ -18,5 +19,27 @@
         style="@style/NullStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:paddingStart="20dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="6dp"
+        app:bgColor="#cccccc"
+        app:radius="100dp"
+        tools:ignore="RelativeOverlap" />
+
+    <com.project.git.com.gitproject.canvas.XferModeView
+        android:id="@+id/canvas_xfermode"
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_marginTop="100dp"
+        android:onClick="clickXFerMode" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/canvas_xfermode_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/canvas_xfermode"
+        android:layout_alignTop="@+id/canvas_xfermode"
+        android:textSize="16dp" />
 </RelativeLayout>
