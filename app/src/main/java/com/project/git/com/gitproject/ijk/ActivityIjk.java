@@ -7,7 +7,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.project.git.com.gitproject.R;
-import com.project.git.com.gitproject.rxjava.IjkFragment;
 
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
@@ -27,12 +26,17 @@ public class ActivityIjk extends Activity {
         mSurface = findViewById(R.id.ijk_playerview);
         mSurface.getHolder().addCallback(mCallBack);
         startPlay();
+        initGsy();
+    }
+
+    private void initGsy(){
+
     }
 
     private void startPlay(){
         mPlayer = new IjkMediaPlayer();
         try {
-            mPlayer.setDataSource("http://covertness.qiniudn.com/android_zaixianyingyinbofangqi_test_baseline.mp4");
+            mPlayer.setDataSource("http://vod.pipi.cn/43903a81vodtransgzp1251246104/6e6f68df5285890809146977693/v.f42906.mp4");
         }catch (Exception e){
 
         }

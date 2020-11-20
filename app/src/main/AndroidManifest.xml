@@ -58,7 +58,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ijk.ActivityIjk"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
         <activity
             android:name=".Sqlite.SqliteActivity"
@@ -159,6 +159,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".tangram.HomePageAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tab.TabIconAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".waterfall.WaterfallAct"
             android:screenOrientation="portrait" />
 
         <activity

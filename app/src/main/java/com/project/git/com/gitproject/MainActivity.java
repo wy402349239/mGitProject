@@ -5,6 +5,8 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -46,8 +48,10 @@ import com.project.git.com.gitproject.staggred.StaggredActivity;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
 import com.project.git.com.gitproject.step.StepCountAct;
+import com.project.git.com.gitproject.tab.TabIconAct;
 import com.project.git.com.gitproject.tangram.HomePageAct;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
+import com.project.git.com.gitproject.waterfall.WaterfallAct;
 import com.project.git.com.gitproject.wave.WaveActivity;
 import com.project.git.com.gitproject.web.WebActivity;
 import com.tencent.mmkv.MMKV;
@@ -57,9 +61,24 @@ import com.utilproject.wy.EncryptUtil;
 import com.utilproject.wy.NetUtil;
 import com.utilproject.wy.SpUtil;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 import java.io.File;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TimeZone;
+import java.util.TreeMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -186,6 +205,10 @@ public class MainActivity extends BaseActivity {
                     Intent homepageIntent = new Intent(MainActivity.this, HomePageAct.class);
                     startActivity(homepageIntent);
                     break;
+                case 27:
+                    Intent waterfall = new Intent(MainActivity.this, WaterfallAct.class);
+                    startActivity(waterfall);
+                    break;
             }
         }
     };
@@ -243,6 +266,39 @@ public class MainActivity extends BaseActivity {
 //                Log.e("Tag", String.valueOf(animation.getAnimatedFraction()));
 //            }
 //        });
+
+        AtomicBoolean atomicBoolean = null;
+        Log.e("Tag", " --- " + (atomicBoolean == null));
+        atomicBoolean = new AtomicBoolean(false);
+        Log.e("Tag", " --- " + (atomicBoolean == null));
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath()
+                + "/Download/Browser/八方战神.apk";
+        PackageManager pm = this.getPackageManager();
+        PackageInfo info = pm.getPackageArchiveInfo(path,
+                PackageManager.GET_ACTIVITIES);
+        if (info != null) {
+            String packageName = info.packageName;
+            Log.e("Tag", packageName);
+        }
+        testList();
+    }
+
+    private void testList() {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add("homeIcon" + (i + 1));
+        }
+        Collections.shuffle(list);
+        Collections.sort(list, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                if (o1.length() != o2.length()) {
+                    return o1.length() > o2.length() ? 1 : -1;
+                }
+                return o1.compareTo(o2);
+            }
+        });
+        Log.e("Tag", list.size() + " ---- ");
     }
 
     private void logAllPkg() {
@@ -472,7 +528,8 @@ public class MainActivity extends BaseActivity {
         mItems.add("跑马灯");
         mItems.add("alipay");
         mItems.add("lock");
-        mItems.add("tanfram\nHomePage");
+        mItems.add("tangram\nHomePage");
+        mItems.add("瀑布流");
 //        mAdapter.notifyDataSetChanged();
     }
 
