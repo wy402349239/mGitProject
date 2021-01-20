@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -37,7 +38,7 @@ public class ShareBitmapUtil {
      * @return 保存文件的路径
      */
     public String saveBitmap(Activity context, String pathOne, String pathTwo) {
-        if (context == null) {
+        if (context == null || TextUtils.isEmpty(pathOne) || TextUtils.isEmpty(pathTwo)) {
             return "";
         }
         // 首先保存图片路径

@@ -1,6 +1,5 @@
 package com.project.git.com.gitproject;
 
-import android.animation.ValueAnimator;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
@@ -20,21 +19,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupWindow;
-import android.widget.Toast;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.project.git.com.gitproject.Sqlite.SqliteActivity;
 import com.project.git.com.gitproject.actAnimation.TurnActivity;
 import com.project.git.com.gitproject.alisign.AliSignAct;
 import com.project.git.com.gitproject.animation.AnimationPropertyActivity;
 import com.project.git.com.gitproject.animation.AnimationTweenActivity;
+import com.project.git.com.gitproject.are.AreaActivity;
 import com.project.git.com.gitproject.bezier.BezierAct;
 import com.project.git.com.gitproject.bitmap.BitmapActivity;
 import com.project.git.com.gitproject.canvas.CanvasActivity;
-import com.project.git.com.gitproject.common.util.PopuUtil;
 import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.levitate.FloatActivity;
-import com.project.git.com.gitproject.listener.ItemEvent;
 import com.project.git.com.gitproject.lock.LockAct;
 import com.project.git.com.gitproject.magicindicator.MagicActivity;
 import com.project.git.com.gitproject.nesting.NestingActivity;
@@ -48,36 +44,20 @@ import com.project.git.com.gitproject.staggred.StaggredActivity;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
 import com.project.git.com.gitproject.step.StepCountAct;
-import com.project.git.com.gitproject.tab.TabIconAct;
 import com.project.git.com.gitproject.tangram.HomePageAct;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
 import com.project.git.com.gitproject.waterfall.WaterfallAct;
 import com.project.git.com.gitproject.wave.WaveActivity;
 import com.project.git.com.gitproject.web.WebActivity;
 import com.tencent.mmkv.MMKV;
-import com.utilproject.wy.AppMessageUtil;
 import com.utilproject.wy.DeviceUtil;
-import com.utilproject.wy.EncryptUtil;
 import com.utilproject.wy.NetUtil;
-import com.utilproject.wy.SpUtil;
-
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 
 import java.io.File;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.TimeZone;
-import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import io.reactivex.Observable;
@@ -209,6 +189,11 @@ public class MainActivity extends BaseActivity {
                     Intent waterfall = new Intent(MainActivity.this, WaterfallAct.class);
                     startActivity(waterfall);
                     break;
+                case 28:
+                    Intent areaPickerIntent = new Intent(MainActivity.this, AreaActivity.class);
+                    startActivity(areaPickerIntent);
+                    break;
+
             }
         }
     };
@@ -267,20 +252,21 @@ public class MainActivity extends BaseActivity {
 //            }
 //        });
 
-        AtomicBoolean atomicBoolean = null;
-        Log.e("Tag", " --- " + (atomicBoolean == null));
-        atomicBoolean = new AtomicBoolean(false);
-        Log.e("Tag", " --- " + (atomicBoolean == null));
-        String path = Environment.getExternalStorageDirectory().getAbsolutePath()
-                + "/Download/Browser/八方战神.apk";
-        PackageManager pm = this.getPackageManager();
-        PackageInfo info = pm.getPackageArchiveInfo(path,
-                PackageManager.GET_ACTIVITIES);
-        if (info != null) {
-            String packageName = info.packageName;
-            Log.e("Tag", packageName);
-        }
+//        AtomicBoolean atomicBoolean = null;
+//        Log.e("Tag", " --- " + (atomicBoolean == null));
+//        atomicBoolean = new AtomicBoolean(false);
+//        Log.e("Tag", " --- " + (atomicBoolean == null));
+//        String path = Environment.getExternalStorageDirectory().getAbsolutePath()
+//                + "/Download/Browser/八方战神.apk";
+//        PackageManager pm = this.getPackageManager();
+//        PackageInfo info = pm.getPackageArchiveInfo(path,
+//                PackageManager.GET_ACTIVITIES);
+//        if (info != null) {
+//            String packageName = info.packageName;
+//            Log.e("Tag", packageName);
+//        }
         testList();
+
     }
 
     private void testList() {
@@ -530,6 +516,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("lock");
         mItems.add("tangram\nHomePage");
         mItems.add("瀑布流");
+        mItems.add("省市区三级联动\n仿微信右划关闭");
 //        mAdapter.notifyDataSetChanged();
     }
 

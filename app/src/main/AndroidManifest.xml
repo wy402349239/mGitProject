@@ -166,6 +166,8 @@
         <activity
             android:name=".waterfall.WaterfallAct"
             android:screenOrientation="portrait" />
+        <activity android:name=".are.AreaActivity"
+            android:theme="@style/ThemeGalley"/>
 
         <activity
             android:name="com.alipay.sdk.app.AlipayResultActivity"

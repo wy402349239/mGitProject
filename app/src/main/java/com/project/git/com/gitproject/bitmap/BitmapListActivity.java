@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 
 import com.project.git.com.gitproject.BaseActivity;
 import com.project.git.com.gitproject.R;
+import com.utilproject.wy.DeviceUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class BitmapListActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bitmap_list_layout);
-        setCj();
+        DeviceUtil.setStatuResouce(this, 0);
         mRootRv = findViewById(R.id.bitmap_list_rv);
         mRootRv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         LinearLayoutManager nManagener = new LinearLayoutManager(BitmapListActivity.this);

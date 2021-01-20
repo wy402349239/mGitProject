@@ -13,6 +13,13 @@
         <item name="android:windowContentTransitions">true</item><!-- 转场动画 -->
     </style>
 
+    <style name="ThemeGalley" parent="AppTheme" >
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:backgroundDimAmount">0</item>
+    </style>
+
     <style name="NullStyle">
         <item name="bgColor">#0492fb</item>
         <item name="textSize">50sp</item>

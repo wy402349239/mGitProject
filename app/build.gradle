@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 // 依赖插件脚本
 apply from: 'tinker-support.gradle'
 apply plugin: 'com.google.protobuf'
@@ -139,7 +140,7 @@ dependencies {
     // ExoPlayer as IMediaPlayer: optional, experimental
     implementation 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.8'
 
-    implementation 'maven_wy:utilproject:1.0.11'
+    implementation 'maven_wy:utilproject:1.0.19'
     implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
     implementation 'com.tencent.bugly:nativecrashreport:latest.release'
@@ -204,4 +205,10 @@ dependencies {
     implementation 'joda-time:joda-time:2.9.4'
 
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47'
+
+    implementation 'com.contrarywind:Android-PickerView:4.1.9'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

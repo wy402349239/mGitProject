@@ -23,8 +23,6 @@ import com.project.git.com.gitproject.R;
  */
 public class NullTextView extends View {
 
-    private Context mCtx;
-
     private Paint mPaint;
     private String textString;
     private int mBgColor;
@@ -34,17 +32,14 @@ public class NullTextView extends View {
 
     public NullTextView(Context context) {
         this(context, null);
-        mCtx = context;
     }
 
     public NullTextView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
-        mCtx = context;
     }
 
     public NullTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mCtx = context;
         init(context, attrs);
     }
 
