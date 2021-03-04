@@ -9,7 +9,7 @@ android {
         release {
             keyAlias 'Alias'
             keyPassword 'Wy123456'
-            storeFile file('/Users/jx_wy/workdir/WorkSpace/GitProject/gp.keystore')
+            storeFile file('/Users/wy/workSpace/GitProject/gp.keystore')
             storePassword 'Wy123456'
         }
     }
@@ -158,7 +158,10 @@ dependencies {
     //画廊效果  三方
     implementation 'github.hellocsl:GalleryLayoutManager:1.0.6'
     //图片框架
-    implementation 'com.github.bumptech.glide:glide:3.5.2'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.caverock:androidsvg:1.2.1'
+
     implementation 'com.android.support:support-v4:28.0.0'
     //cardview
     implementation 'com.android.support:cardview-v7:28.0.0'

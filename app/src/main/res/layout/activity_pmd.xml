@@ -35,5 +35,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/pmd_svg"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

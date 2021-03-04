@@ -1,12 +1,16 @@
 package com.project.git.com.gitproject.pmd;
 
+import android.graphics.drawable.PictureDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.project.git.com.gitproject.BaseActivity;
 import com.project.git.com.gitproject.R;
+import com.project.git.com.gitproject.svg.SvgSoftwareLayerSetter;
 
 /**
  * created by wangyu on 2019-12-09
@@ -40,5 +44,12 @@ public class PmdAct extends BaseActivity {
                 Log.e("Tag", btn.getWidth() + " ===== ");
             }
         });
+        AppCompatImageView img = findViewById(R.id.pmd_svg);
+        //http://test.cdn.dianshihome.com/static/ad/1067b99dfe6c744a7c2a8584f042881b.svg
+        String url = "http://test.cdn.dianshihome.com/static/task/396fe07dcf3c56e08dd839e0829d7c23.svg";
+        Glide.with(this).as(PictureDrawable.class)
+                .listener(new SvgSoftwareLayerSetter())
+                .load(url)
+                .into(img);
     }
 }
