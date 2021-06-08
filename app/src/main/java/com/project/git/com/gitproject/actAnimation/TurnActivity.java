@@ -2,6 +2,7 @@ package com.project.git.com.gitproject.actAnimation;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.transition.Fade;
@@ -9,6 +10,7 @@ import android.util.Pair;
 import android.view.View;
 
 import com.project.git.com.gitproject.BaseActivity;
+import com.project.git.com.gitproject.DemoApp;
 import com.project.git.com.gitproject.R;
 import com.utilproject.wy.DeviceUtil;
 
@@ -53,5 +55,12 @@ public class TurnActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(TurnActivity.this, Pair.create(v, "btn"), Pair.create(v, "btn2")).toBundle());
                 break;
         }
+//        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(TbUrl));
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        DemoApp.getInstance().startActivity(intent);
     }
+
+    private static final String Alipay = "alipays://platformapi/startapp?appId=20000067&url=https%3a%2f%2frender.alipay.com%2fp%2fopx%2fnormal-k89zo22y%2fa.html%3fpartnerId%3dszjy411%26sceneCode%3dKF_ZHCPA%26benefit%3ddnsffl200908%26shareChannel%3dQRCode%26shareUserId%3d2088931839886135%26sharedUserId%3d%26webview_options%3d%26growthScene%3dIN_INVITE_UNTARGET_USER%26hookId%3d";
+    private static final String JdUrl = "openapp.jdmobile://virtual?params={\"category\":\"jump\",\"sourceType\":\"sourceType_test\",\"des\":\"m\",\"url\":\"https://u.jd.com/iF2WFqu\",\"unionSource\":\"Awake\",\"channel\":\"d1337e4d3f8446e5b7653d9b147563f1\",\"union_open\":\"union_cps\"}";
+    private static final String TbUrl = "tbopen://m.taobao.com/tbopen/index.html?source=auto&action=ali.open.nav&module=h5&bootImage=0&spm=2014.ugdhh.2200606446343.227036-484807-32768&bc_fl_src=growth_dhh_2200606446343_227036-484807-32768&materialid=227036&h5Url=https%3A%2F%2Fstar-link.taobao.com%3Fslk_actid%3D100000000323%26spm%3D2014.ugdhh.2200606446343.227036-484807-32768%26bc_fl_src%3Dgrowth_dhh_2200606446343_227036-484807-32768";
 }

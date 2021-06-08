@@ -7,10 +7,15 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -34,6 +39,7 @@ import com.project.git.com.gitproject.levitate.FloatActivity;
 import com.project.git.com.gitproject.lock.LockAct;
 import com.project.git.com.gitproject.magicindicator.MagicActivity;
 import com.project.git.com.gitproject.nesting.NestingActivity;
+import com.project.git.com.gitproject.okdownload.OkDownloadActivity;
 import com.project.git.com.gitproject.pic.PicScrollActivity;
 import com.project.git.com.gitproject.pictureinpicture.PicActivity;
 import com.project.git.com.gitproject.pmd.PmdAct;
@@ -193,13 +199,16 @@ public class MainActivity extends BaseActivity {
                     Intent areaPickerIntent = new Intent(MainActivity.this, AreaActivity.class);
                     startActivity(areaPickerIntent);
                     break;
+                case 29:
+                    startActivity(new Intent(MainActivity.this, OkDownloadActivity.class));
+                    break;
 
             }
         }
     };
     private List<String> mItems = new ArrayList<>();
-    private PopupWindow mPopu;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -266,7 +275,26 @@ public class MainActivity extends BaseActivity {
 //            Log.e("Tag", packageName);
 //        }
         testList();
+        List<String> list = new ArrayList<>();
+        list.add("a.apk");
+        list.add("a-mapping.txt");
+        list.add("a-R.txt");
+        list.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        Log.e("Tag", list.get(0) + " --- " + list.get(1) + " ---- " + list.get(2));
+        mourn();
+    }
 
+    private void mourn(){
+        Paint paint = new Paint();
+        ColorMatrix cm = new ColorMatrix();
+        cm.setSaturation(0);
+        paint.setColorFilter(new ColorMatrixColorFilter(cm));
+        getWindow().getDecorView().setLayerType(View.LAYER_TYPE_HARDWARE,paint);
     }
 
     private void testList() {
@@ -517,6 +545,7 @@ public class MainActivity extends BaseActivity {
         mItems.add("tangram\nHomePage");
         mItems.add("瀑布流");
         mItems.add("省市区三级联动\n仿微信右划关闭");
+        mItems.add("下载任务");
 //        mAdapter.notifyDataSetChanged();
     }
 
