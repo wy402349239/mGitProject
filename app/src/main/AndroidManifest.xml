@@ -1,190 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.project.git.com.gitproject">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.project.git.com.gitproject">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
 
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
-    <uses-feature android:name="android.hardware.sensor.accelerometer" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <uses-feature
-        android:name="android.hardware.sensor.stepcounter"
-        android:required="true" />
+            android:name="android.hardware.sensor.stepcounter"
+            android:required="true"/>
     <uses-feature
-        android:name="android.hardware.sensor.stepdetector"
-        android:required="true" />
+            android:name="android.hardware.sensor.stepdetector"
+            android:required="true"/>
 
     <application
-        android:name=".DemoApp"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
+            android:name=".DemoApp"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:usesCleartextTraffic="true"
+            android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".bitmap.BitmapActivity"
-            android:screenOrientation="portrait" />
+                android:name=".bitmap.BitmapActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".bitmap.BitmapListActivity"
-            android:screenOrientation="portrait" />
+                android:name=".bitmap.BitmapListActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".rxjava.RxJavaActivity"
-            android:screenOrientation="portrait" />
+                android:name=".rxjava.RxJavaActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".ijk.ActivityIjk"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+                android:name=".ijk.ActivityIjk"
+                android:screenOrientation="portrait"
+                android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
         <activity
-            android:name=".Sqlite.SqliteActivity"
-            android:screenOrientation="portrait" />
+                android:name=".Sqlite.SqliteActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".levitate.FloatActivity"
-            android:screenOrientation="portrait" />
+                android:name=".levitate.FloatActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".statu.TransStatuActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+                android:name=".statu.TransStatuActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
-            android:name=".statu.GradintActivity"
-            android:screenOrientation="portrait" />
+                android:name=".statu.GradintActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".viewpagerfragment.PagerActivity"
-            android:screenOrientation="portrait" />
+                android:name=".viewpagerfragment.PagerActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".size.SizeActivity"
-            android:screenOrientation="portrait" />
+                android:name=".size.SizeActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".pictureinpicture.PicActivity"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-            android:screenOrientation="portrait"
-            android:supportsPictureInPicture="true" />
+                android:name=".pictureinpicture.PicActivity"
+                android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+                android:screenOrientation="portrait"
+                android:supportsPictureInPicture="true"/>
 
-        <service android:name=".levitate.FloatService" />
-
-        <activity
-            android:name=".animation.AnimationTweenActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".animation.AnimationPropertyActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".canvas.CanvasActivity"
-            android:screenOrientation="portrait" />
-
+        <service android:name=".levitate.FloatService"/>
 
         <activity
-            android:name="com.tencent.bugly.beta.ui.BetaActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|locale"
-            android:theme="@android:style/Theme.Translucent" />
+                android:name=".animation.AnimationTweenActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".animation.AnimationPropertyActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".canvas.CanvasActivity"
+                android:screenOrientation="portrait"/>
+
+
+        <activity
+                android:name="com.tencent.bugly.beta.ui.BetaActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize|locale"
+                android:theme="@android:style/Theme.Translucent"/>
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.fileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
+                android:name="android.support.v4.content.FileProvider"
+                android:authorities="${applicationId}.fileProvider"
+                android:exported="false"
+                android:grantUriPermissions="true">
             <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/provider_paths"/>
         </provider>
 
         <activity
-            android:name=".pic.PicScrollActivity"
-            android:screenOrientation="portrait" />
+                android:name=".pic.PicScrollActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".wave.WaveActivity"
-            android:screenOrientation="portrait" />
+                android:name=".wave.WaveActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".web.WebActivity"
-            android:screenOrientation="portrait" />
+                android:name=".web.WebActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".staggred.StaggredActivity"
-            android:screenOrientation="portrait" />
+                android:name=".staggred.StaggredActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".magicindicator.MagicActivity"
-            android:screenOrientation="portrait" />
+                android:name=".magicindicator.MagicActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".actAnimation.TurnActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+                android:name=".actAnimation.TurnActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".actAnimation.Turn2Activity"
-            android:screenOrientation="portrait" />
+                android:name=".actAnimation.Turn2Activity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".skin.SkinActivity"
-            android:screenOrientation="portrait" />
+                android:name=".skin.SkinActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".nesting.NestingActivity"
-            android:screenOrientation="portrait" />
+                android:name=".nesting.NestingActivity"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".step.StepCountAct"
-            android:screenOrientation="portrait" />
+                android:name=".step.StepCountAct"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".bezier.BezierAct"
-            android:screenOrientation="portrait" />
+                android:name=".bezier.BezierAct"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".pmd.PmdAct"
-            android:screenOrientation="portrait" />
+                android:name=".pmd.PmdAct"
+                android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".alisign.AliSignAct"
-            android:screenOrientation="portrait" />
+                android:name=".alisign.AliSignAct"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".lock.LockAct"
-            android:screenOrientation="portrait" />
+                android:name=".lock.LockAct"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".tangram.HomePageAct"
-            android:screenOrientation="portrait" />
+                android:name=".tangram.HomePageAct"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".tab.TabIconAct"
-            android:screenOrientation="portrait" />
+                android:name=".tab.TabIconAct"
+                android:screenOrientation="portrait"/>
         <activity
-            android:name=".waterfall.WaterfallAct"
-            android:screenOrientation="portrait" />
+                android:name=".waterfall.WaterfallAct"
+                android:screenOrientation="portrait"/>
         <activity android:name=".are.AreaActivity"
-            android:theme="@style/ThemeGalley"/>
+                  android:theme="@style/ThemeGalley"/>
+        <activity android:name=".clickeye.ClickEyeActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".svga.SvgaActivity"
+                  android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.alipay.sdk.app.AlipayResultActivity"
-            tools:node="merge">
+                android:name="com.alipay.sdk.app.AlipayResultActivity"
+                tools:node="merge">
             <intent-filter tools:node="replace">
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:scheme="__alipay_git__" />
+                <data android:scheme="__alipay_git__"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".okdownload.OkDownloadActivity"
-            android:screenOrientation="portrait" />
+                android:name=".okdownload.OkDownloadActivity"
+                android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

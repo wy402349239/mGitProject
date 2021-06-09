@@ -34,6 +34,7 @@ import com.project.git.com.gitproject.are.AreaActivity;
 import com.project.git.com.gitproject.bezier.BezierAct;
 import com.project.git.com.gitproject.bitmap.BitmapActivity;
 import com.project.git.com.gitproject.canvas.CanvasActivity;
+import com.project.git.com.gitproject.clickeye.ClickEyeActivity;
 import com.project.git.com.gitproject.ijk.ActivityIjk;
 import com.project.git.com.gitproject.levitate.FloatActivity;
 import com.project.git.com.gitproject.lock.LockAct;
@@ -50,6 +51,7 @@ import com.project.git.com.gitproject.staggred.StaggredActivity;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
 import com.project.git.com.gitproject.step.StepCountAct;
+import com.project.git.com.gitproject.svga.SvgaActivity;
 import com.project.git.com.gitproject.tangram.HomePageAct;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
 import com.project.git.com.gitproject.waterfall.WaterfallAct;
@@ -202,6 +204,12 @@ public class MainActivity extends BaseActivity {
                 case 29:
                     startActivity(new Intent(MainActivity.this, OkDownloadActivity.class));
                     break;
+                case 30:
+                    startActivity(new Intent(MainActivity.this, ClickEyeActivity.class));
+                    break;
+                case 31:
+                    startActivity(new Intent(MainActivity.this, SvgaActivity.class));
+                    break;
 
             }
         }
@@ -243,76 +251,18 @@ public class MainActivity extends BaseActivity {
         dataMove();
         logAllPkg();
 
-//        final LottieAnimationView lottieAnimationView = findViewById(R.id.demo_main_lottie);
-//        lottieAnimationView.setImageAssetsFolder("images/");
-//        lottieAnimationView.setAnimation("rp_head_feature_left_anim.json");
-////        lottieAnimationView.playAnimation();
-//        lottieAnimationView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                lottieAnimationView.cancelAnimation();
-////                lottieAnimationView.playAnimation();
-//            }
-//        });
-//        lottieAnimationView.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-//            @Override
-//            public void onAnimationUpdate(ValueAnimator animation) {
-//                Log.e("Tag", String.valueOf(animation.getAnimatedFraction()));
-//            }
-//        });
-
-//        AtomicBoolean atomicBoolean = null;
-//        Log.e("Tag", " --- " + (atomicBoolean == null));
-//        atomicBoolean = new AtomicBoolean(false);
-//        Log.e("Tag", " --- " + (atomicBoolean == null));
-//        String path = Environment.getExternalStorageDirectory().getAbsolutePath()
-//                + "/Download/Browser/八方战神.apk";
-//        PackageManager pm = this.getPackageManager();
-//        PackageInfo info = pm.getPackageArchiveInfo(path,
-//                PackageManager.GET_ACTIVITIES);
-//        if (info != null) {
-//            String packageName = info.packageName;
-//            Log.e("Tag", packageName);
-//        }
-        testList();
-        List<String> list = new ArrayList<>();
-        list.add("a.apk");
-        list.add("a-mapping.txt");
-        list.add("a-R.txt");
-        list.sort(new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o2.compareTo(o1);
-            }
-        });
-        Log.e("Tag", list.get(0) + " --- " + list.get(1) + " ---- " + list.get(2));
         mourn();
     }
 
+    /**
+     * 黑白模式
+     */
     private void mourn(){
-        Paint paint = new Paint();
-        ColorMatrix cm = new ColorMatrix();
-        cm.setSaturation(0);
-        paint.setColorFilter(new ColorMatrixColorFilter(cm));
-        getWindow().getDecorView().setLayerType(View.LAYER_TYPE_HARDWARE,paint);
-    }
-
-    private void testList() {
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            list.add("homeIcon" + (i + 1));
-        }
-        Collections.shuffle(list);
-        Collections.sort(list, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                if (o1.length() != o2.length()) {
-                    return o1.length() > o2.length() ? 1 : -1;
-                }
-                return o1.compareTo(o2);
-            }
-        });
-        Log.e("Tag", list.size() + " ---- ");
+//        Paint paint = new Paint();
+//        ColorMatrix cm = new ColorMatrix();
+//        cm.setSaturation(0);
+//        paint.setColorFilter(new ColorMatrixColorFilter(cm));
+//        getWindow().getDecorView().setLayerType(View.LAYER_TYPE_HARDWARE,paint);
     }
 
     private void logAllPkg() {
@@ -333,22 +283,22 @@ public class MainActivity extends BaseActivity {
      * 数据迁移及删除
      */
     private void dataMove() {
-        MMKV kv = MMKV.mmkvWithID("sp");
-        kv.importFromSharedPreferences(getSp());
-        String[] strings = kv.allKeys();
-        if (strings != null && strings.length > 0) {
-            for (int i = 0; i < strings.length; i++) {
-                Log.e("key : ", strings[i]);
-            }
-        }
-        Log.e("Tag", Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + MainActivity.this.getPackageName());
-        String path = MainActivity.this.getFilesDir().getParentFile() + File.separator + "shared_prefs" + File.separator + "Pro.xml";
-        File file = new File(path);
-        try {
-            Log.e("Tag", "delete result = " + file.delete());
-        } catch (Exception e) {
-            Log.e("Tag", Log.getStackTraceString(e));
-        }
+//        MMKV kv = MMKV.mmkvWithID("sp");
+//        kv.importFromSharedPreferences(getSp());
+//        String[] strings = kv.allKeys();
+//        if (strings != null && strings.length > 0) {
+//            for (int i = 0; i < strings.length; i++) {
+//                Log.e("key : ", strings[i]);
+//            }
+//        }
+//        Log.e("Tag", Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + MainActivity.this.getPackageName());
+//        String path = MainActivity.this.getFilesDir().getParentFile() + File.separator + "shared_prefs" + File.separator + "Pro.xml";
+//        File file = new File(path);
+//        try {
+//            Log.e("Tag", "delete result = " + file.delete());
+//        } catch (Exception e) {
+//            Log.e("Tag", Log.getStackTraceString(e));
+//        }
     }
 
     /**
@@ -546,6 +496,8 @@ public class MainActivity extends BaseActivity {
         mItems.add("瀑布流");
         mItems.add("省市区三级联动\n仿微信右划关闭");
         mItems.add("下载任务");
+        mItems.add("点睛动画");
+        mItems.add("SVGA");
 //        mAdapter.notifyDataSetChanged();
     }
 

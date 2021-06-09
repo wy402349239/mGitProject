@@ -211,6 +211,8 @@ dependencies {
 
     implementation 'com.contrarywind:Android-PickerView:4.1.9'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation 'com.github.svga:SVGAPlayer-Android:2.5.15'
 }
 repositories {
     mavenCentral()

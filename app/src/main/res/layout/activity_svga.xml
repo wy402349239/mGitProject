@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/svga_root"
+        android:orientation="vertical">
+
+    <com.opensource.svgaplayer.SVGAImageView
+            android:id="@+id/svga_ftb"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:source="footbal.svga"
+            app:clearsAfterStop="false"
+            app:autoPlay="true"
+            app:loopCount="1"
+            app:fillMode="Forward"
+            android:background="@android:color/black"
+            android:layout_weight="1"/>
+</LinearLayout>
