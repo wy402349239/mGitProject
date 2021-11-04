@@ -29,7 +29,7 @@ public class EnterToast {
         if (toast == null){
             time = cTime;
             toast = createToast(context, msg);
-            toast.show();
+            toast.show();//.....
             Log.e("Tag", "normal show --> " + cTime);
         }else {
             Log.e("Tag", cTime + " ---> " + time);
