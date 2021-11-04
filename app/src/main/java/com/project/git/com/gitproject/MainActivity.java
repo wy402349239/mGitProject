@@ -4,16 +4,10 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
@@ -23,7 +17,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.PopupWindow;
 
 import com.project.git.com.gitproject.Sqlite.SqliteActivity;
 import com.project.git.com.gitproject.actAnimation.TurnActivity;
@@ -51,8 +44,8 @@ import com.project.git.com.gitproject.staggred.StaggredActivity;
 import com.project.git.com.gitproject.statu.GradintActivity;
 import com.project.git.com.gitproject.statu.TransStatuActivity;
 import com.project.git.com.gitproject.step.StepCountAct;
-import com.project.git.com.gitproject.svga.SvgaActivity;
 import com.project.git.com.gitproject.tangram.HomePageAct;
+import com.project.git.com.gitproject.toast.EnterToast;
 import com.project.git.com.gitproject.viewpagerfragment.PagerActivity;
 import com.project.git.com.gitproject.waterfall.WaterfallAct;
 import com.project.git.com.gitproject.wave.WaveActivity;
@@ -61,12 +54,8 @@ import com.tencent.mmkv.MMKV;
 import com.utilproject.wy.DeviceUtil;
 import com.utilproject.wy.NetUtil;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -208,12 +197,14 @@ public class MainActivity extends BaseActivity {
                     startActivity(new Intent(MainActivity.this, ClickEyeActivity.class));
                     break;
                 case 31:
-                    startActivity(new Intent(MainActivity.this, SvgaActivity.class));
+//                    startActivity(new Intent(MainActivity.this, SvgaActivity.class));
+                    EnterToast.touchToast(MainActivity.this, "--->");
                     break;
 
             }
         }
     };
+
     private List<String> mItems = new ArrayList<>();
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -252,6 +243,11 @@ public class MainActivity extends BaseActivity {
         logAllPkg();
 
         mourn();
+
+        boolean a = true;
+        boolean b = false;
+        boolean c = true;
+        Log.e("tag", (a == b) + " ---  " + (a == c));
     }
 
     /**

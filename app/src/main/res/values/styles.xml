@@ -11,6 +11,14 @@
         <item name="windowNoTitle">true</item>
         <item name="android:listDivider">@drawable/listdriver</item>
         <item name="android:windowContentTransitions">true</item><!-- 转场动画 -->
+        <item name="android:windowBackground">@drawable/application_background</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar" >
+        <item name="android:windowBackground">@drawable/application_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="ThemeGalley" parent="AppTheme" >

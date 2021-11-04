@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.project.git.com.gitproject.BaseActivity;
 import com.project.git.com.gitproject.R;
 
